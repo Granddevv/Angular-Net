@@ -1,0 +1,54 @@
+<div id="report-datatable" class="row">
+  <ngx-datatable #table class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [count]="count" [offset]="offset" [limit]="limitPerPage"
+    [selected]="selected" (page)='onPage($event)' (sort)="onSort($event)" [loadingIndicator]="loadingIndicator">
+  </ngx-datatable>
+
+  <template #actionsTemplate let-row="row">
+    <div class="btn-group threedots-style" id="action-dropdown-menu" dropdown [autoClose]="'nonInput'">
+      <button id="single-button" type="button" class="btn" dropdownToggle>
+      <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+    </button>
+      <ul *dropdownMenu role="menu" aria-labelledby="single-button" class="dropdown-menu dropdown-menu-right">
+        <li role="menuitem" appHasAnyPermission [permissions]="[Permissions.DeleteReport]">
+          <a class="dropdown-item" (click)="delete(row)" href="javascript:void(0)"><i class="fa fa-trash-o"></i> Delete</a>
+        </li>
+        <li role="menuitem" appHasAnyPermission [permissions]="[Permissions.DownloadReport]">
+          <a class="dropdown-item" (click)="download(row)" href="javascript:void(0)"><i class="fa fa-download"></i> Download Report</a>
+        </li>
+      </ul>
+    </div>
+  </template>
+
+  <template #nameTemplate let-value='value'>
+    {{value | truncate : 30}}
+  </template>
+
+  <template #nameHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #dateHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer;">{{column.name}}</div>
+  </template>
+
+  <template #sizeHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #siteHeaderTemplate let-column="column">
+    <div>{{column.name}}</div>
+  </template>
+
+  <template #turbineHeaderTemplate let-column="column">
+    <div>{{column.name}}</div>
+  </template>
+
+  <template #bladeHeaderTemplate let-column="column">
+    <div>{{column.name}}</div>
+  </template>
+
+  <template #actionHeaderTemplate let-column="column">
+    <div>{{column.name}}</div>
+  </template>
+</div>

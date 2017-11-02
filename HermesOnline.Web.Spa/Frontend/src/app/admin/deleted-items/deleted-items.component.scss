@@ -1,0 +1,23 @@
+@import './src/variables.scss';
+
+.deleted-items-fonts{
+    color:#b91372;
+    font-size: 400%;
+    font-weight: bolder;
+    @media (max-width: $break-large) {
+        font-size: $dashboard-fonts !important;
+    }
+}
+
+.container{
+    background-color: #0C0A27;
+    color: #fcfcfc;
+    background-image: url('~assets/page-header-background.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;;
+    height: 650px;
+    width: 100%;
+    margin-top: -20px;    
+}

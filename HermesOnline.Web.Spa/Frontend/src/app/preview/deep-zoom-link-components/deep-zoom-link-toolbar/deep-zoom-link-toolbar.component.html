@@ -1,0 +1,11 @@
+<div class="row">
+  <div [ngClass]="{'col-xl-5': isComparisonWindow, 'col-md-5': !isComparisonWindow}" >
+    <md-slide-toggle [checked]='true' (change)='toggleAnnotation($event.checked)'><span class="toogle-content">Display finding outline</span></md-slide-toggle>
+  </div>
+  <div [ngClass]="{'col-xl-3': isComparisonWindow, 'col-md-3': !isComparisonWindow}">
+    <md-slide-toggle [checked]='true' (change)='toggleScale($event.checked)'> <span class="toogle-content">Display scale</span></md-slide-toggle>
+  </div>
+  <div [ngClass]="{'col-xl-4': isComparisonWindow, 'col-md-4': !isComparisonWindow}">
+    <md-slide-toggle [checked]='false' (change)='toggleMeasureDistance($event.checked)'> <span class="toogle-content">Measure distance</span></md-slide-toggle>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div id="findings-for-deep-zoom-link" class="row">
+  <ngx-datatable class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [scrollbarH]="true" [count]="count" [offset]="offset"
+    [limit]="limitPerPage" [selected]="selected" [selectionType]="'single'" (select)='onSelect($event)' (sort)="onSort($event)">
+    <ngx-datatable-footer>
+      <ng-template ngx-datatable-footer-template let-rowCount="count" let-pageSize="pageSize" let-selectedCount="selectedCount"
+        let-curPage="curPage" let-offset="offset">
+        <div class="row" style="padding-top: 12px;margin-left:0px;width: 100%">
+          <div class="col-md-3" style="font-size: 12px;">
+            <p> {{count}} total</p>
+          </div>
+          <div class="col-md-9" style="font-size: 12px;" *ngIf='count > 0'>
+            <div class='paginator' style="float: right">
+              <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
+                [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage" [size]="limitPerPage" [count]="count" (change)="onPage($event)"
+                [hidden]="!((count / pageSize) > 1)">
+              </datatable-pager>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngx-datatable-footer>
+  </ngx-datatable>
+</div>

@@ -1,0 +1,17 @@
+<div id="log-datatable" class="row">
+  <div style="margin-left: 3.5%;margin-bottom: 10px">
+    <h4 class="modal-title" style="opacity: 0.7; margin-left: 10px;">Application Log</h4>
+  </div>
+  <ngx-datatable class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [count]="count" [offset]="offset" [limit]="limitPerPage"
+     [selected]="selected" [selectionType]="'single'" (page)='onPage($event)' (select)='onSelect($event)' [loadingIndicator]="loadingIndicator">
+  </ngx-datatable>
+</div>
+
+<template #typeTemplate let-value='value'>
+  {{value | truncate : 30}}
+</template>
+
+<template #errorTemplate let-value='value'>
+  {{value | truncate : 40}}
+</template>

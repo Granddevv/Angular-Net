@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row" *ngIf='deepZoomLinkInfo'>
+    <app-breadcrumb-info 
+      [deepZoomLinkId]="deepZoomLinkInfo.deepZoomLinkId" 
+      [isComparisonWindow]="isComparisonWindow">
+    </app-breadcrumb-info>
+    <div *ngIf="position.Left == deepZoomWindowPosition" class="col-md-8 nopadding">
+      <app-deep-zoom-link 
+        [deepZoomLinkInfo]="deepZoomLinkInfo" 
+        [deepZoomLinkImages]="deepZoomLinkImages">
+    </app-deep-zoom-link>
+    </div>
+    <div class="col-md-4">
+      <app-deep-zoom-link-toolbar 
+        (toggleAnnotationChanged)="toggleAnnotationChanged($event)" 
+        (toggleScaleChanged)="toggleScaleChanged($event)"
+        (toggleMeasureDistanceChanged)="toggleMeasureDistanceChanged($event)"
+        [isComparisonWindow]="isComparisonWindow">
+      </app-deep-zoom-link-toolbar>
+      <app-findings-for-deep-zoom-link 
+        [bladeId]="deepZoomLinkInfo.bladeId" 
+        [surface]="deepZoomLinkInfo.surface" 
+        [inspectionId]="deepZoomLinkInfo.inspectionId"
+        (selectedChanged)="findingSelected($event)">
+      </app-findings-for-deep-zoom-link>
+    </div>
+    <div *ngIf="position.Right == deepZoomWindowPosition" class="col-md-8 nopadding">
+      <app-deep-zoom-link 
+        [deepZoomLinkInfo]="deepZoomLinkInfo" 
+        [deepZoomLinkImages]="deepZoomLinkImages"></app-deep-zoom-link>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.login-container {
+    background-image: url('~assets/page-header-background.png');
+    width:100%;
+    height: 660px;
+    display: block;
+    position: relative;
+}
+
+.loginscreen {
+    margin: 0 auto;
+    padding-top: 100px;
+    display: block;
+    width: 300px;
+    position: relative;
+    top: -20px;
+    
+    input {
+        outline: none;
+    }
+}
+
+.login-container .help-block {
+    color: #a94442;
+}
+
+.login-logo {
+    top: 60px;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.request-access {
+    margin-top: 25px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.copyright {
+    position: absolute;
+    bottom: 1px;
+    right: 2px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-pink {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+h3 {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+h4 {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+#login-loader {
+    margin-left: 48%;
+    margin-top: 5px;
+}

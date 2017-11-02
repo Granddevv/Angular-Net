@@ -1,0 +1,49 @@
+<div id="findings-overview">
+  <div id="page-content-menu" class="row">
+    <div class="col-md-6">
+      <ul>
+        <li><a href="javascript:void(0)" id="findings-menu" (click)='changeTab(Tab.Findings)' [ngStyle]="{opacity: tab === Tab.Findings ? '1': '0.5'}">Findings ({{ findingsCount }})</a></li>
+        <li><a href="javascript:void(0)" *ngIf="false" id="my-findings-menu" (click)='changeTab(Tab.MyFindings)' [ngStyle]="{opacity: tab === Tab.MyFindings ? '1': '0.5'}">My Findings (0)</a></li>
+        <li><a href="javascript:void(0)" id="deep-zoom-links-menu" (click)='changeTab(Tab.DeepZoomLinks)' [ngStyle]="{opacity: tab === Tab.DeepZoomLinks ? '1': '0.5'}">Deep Zoom ({{deepZoomLinksCount}})</a></li>
+        <li><a href="javascript:void(0)" id="reports-menu" (click)='changeTab(Tab.Reports)' [ngStyle]="{opacity: tab === Tab.Reports ? '1': '0.5'}">Reports ({{reportCount}})</a></li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse col-md-1" id="report-dropdown-menu" style="float: right">
+      <ul class="navbar-right">
+        <li appHasAnyPermission [permissions]="[Permissions.GenerateReport]" class="dropdown" dropdown>
+          <a class="dropdown-toggle" data-toggle="dropdown"  data-toggle="tooltip" title="Report generation" role="button" aria-haspopup="true"
+            aria-expanded="false" dropdownToggle><i class="material-icons md-dark">description</i></a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <li>
+              <a href="javascript:void(0)" style="width: 357px;" (click)='generateDataExtractReport()' class="open-linking-dialog"><i class="fa fa-file-excel-o"></i> Generate Data Extract</a>
+            </li>
+            <li *ngIf="type == NodeType.Site || type == NodeType.Turbine">
+              <a href="javascript:void(0)" (click)="generateBladeHealthReport()" style="width: 357px;" class="open-linking-dialog"><i class="fa fa-file-word-o"></i> Generate Blade Health Report - {{NodeType[type]}} Summary</a>
+            </li>
+            <li *ngIf="type == NodeType.Blade || type == NodeType.Turbine">
+              <a href="javascript:void(0)" (click)='generateComparisonReport()' style="width: 357px;" class="open-linking-dialog"><i class="fa fa-file-word-o"></i> Generate Comparison Report - {{NodeType[type]}}</a>
+            </li>
+            <li *ngIf="type == NodeType.Blade || type == NodeType.Turbine">
+              <a href="javascript:void(0)" (click)='generateRepairReport()' style="width: 357px;" class="open-linking-dialog"><i class="fa fa-file-word-o"></i> Generate Repair Recommendation Report</a>
+            </li>
+          </div>
+        </li>
+        <li appHasAnyPermission [permissions]="[Permissions.AttachReport]" *ngIf="type == NodeType.Blade || type == NodeType.Turbine || type == NodeType.Site">
+          <a  data-toggle="tooltip" title="Attach Report" style="cursor:pointer" (click)="attachReport()"><i class="material-icons md-dark">backup</i></a>
+        </li>
+        <li class="timeline">
+          <a *ngIf="selectedFindingId || isClicked" style="color: gray" data-toggle="tooltip" title="Timeline"  (click)="openTimeline()" [routerLink]="['/managerview', {outlets: {'filter':['timeline','finding', selectedFindingId ]}}]"><i class="material-icons">hourglass_full</i></a>
+        </li>
+        <li>
+          <a [ngStyle]="{'color' : getCustomFilterIconColor()}" style="cursor:pointer" data-toggle="tooltip" title="Custom Filter" (click)="openCustomFilterDialog()"><i class="material-icons">filter_list</i></a>
+        </li>
+        <li>
+          <app-column-visibility [tableName]='tableName'></app-column-visibility>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <app-findings-data-table *ngIf='tab === Tab.Findings' (totalRecordsNumber)="findingsRecordsNumber($event)" (rowSelected)="onRowSelected($event)" [filter]="findingsDataTableFilter" (selectedRowForReportEmiter)="onSelectedRowsForReport($event)"></app-findings-data-table>
+  <app-deep-zoom-links *ngIf='tab === Tab.DeepZoomLinks'(totalRecordsNumber)="deepZoomsRecordsNumber($event)"></app-deep-zoom-links>
+  <app-reports *ngIf='tab === Tab.Reports' (totalRecordsNumber)="reportsRecordsNumber($event)"></app-reports>
+</div>

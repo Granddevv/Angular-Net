@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EB4DAC7F-F2F9-4F06-ADF0-FBB7AD5F3977}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HermesOnline.Web.Spa</RootNamespace>
+    <AssemblyName>HermesOnline.Web.Spa</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'development|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>default</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aether.Utils, Version=1.0.5.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AetherUtils.1.0.5.10\lib\Aether.Utils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.1.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.4.0.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.0.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah.Contrib.WebApi, Version=1.0.10.25, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elmah.Contrib.WebApi.1.0.10.25\lib\net45\Elmah.Contrib.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.9.2\lib\net45\Glimpse.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Autofac, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Autofac.2.2.0\lib\net45\Hangfire.Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.12\lib\net45\Hangfire.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.6.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.6.12\lib\net45\Hangfire.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.2\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.2.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.5.3\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\blade_outline.png" />
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="App_Data\blade_outline_abc.png" />
+    <Content Include="App_Data\blade_outline_horizontal.png" />
+    <Content Include="index.html" />
+    <Content Include="App_Data\UserListReportTemplate.xltx" />
+    <Content Include="App_Data\DefectChangeLogsListReportTemplate.xltx" />
+    <None Include="packages.config" />
+    <Content Include="App_Data\DataExtractReportTemplate.xltx" />
+    <Content Include="App_Data\SiemensBladeHealthReport.docx" />
+    <Content Include="App_Data\RepairReport.docx" />
+    <None Include="Properties\PublishProfiles\hermesonline-development.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\hermesonline-siemens-live.pubxml" />
+    <None Include="Properties\PublishProfiles\hermesonline-siemens-test.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.development.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.hermesonline-siemens-live.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.hermesonline-siemens-test.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\HangfireManager.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AutoMapperProfiles\Account\RequestAccessDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Breadcrumb\BreadcrumbDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Common\ImageMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Common\InspectionMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Common\SequenceMapping.cs" />
+    <Compile Include="AutoMapperProfiles\CustomFilters\CustomFiltersTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\DeepZoom\DeepZoomLinkAnnotationsDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Common\IdTextProfile.cs" />
+    <Compile Include="AutoMapperProfiles\DeepZoom\DeepZoomMapping.cs" />
+    <Compile Include="AutoMapperProfiles\ChangeLog\DefectChangeLogsTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\FileUploadLog\FileUpladLogTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Finding\DefectCountQueryHelper.cs" />
+    <Compile Include="AutoMapperProfiles\Finding\DefectMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Log\LogTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Feedback\FeedbacksTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Finding\DefectQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Announcement\AnnotationsDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Common\FolderStructureDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Node\BladeMapMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Node\BladeMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Node\CountryMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Node\RegionMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Node\SiteMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Node\TurbineMapping.cs" />
+    <Compile Include="AutoMapperProfiles\Queries\AnnouncementsTableQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Announcement\AnnouncementsTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Node\CountryDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\DeepZoom\FindingsForDeepZoomLinkTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Queries\DefectChangeLogQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Queries\CustomFilterQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Queries\FeedbackQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Queries\FindingsActionsQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Queries\FindingsQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\QuickFilters\FeedbackDataTableQuickFilterListDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Queries\TagsQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\QuickFilters\DefectChangeLogsDataTableQuickFilterListDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\QuickFilters\UserManagmentDataTableQuickFilterListDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\QuickFilters\FindingsDataTableQuickFilterListDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Report\ReportDataTableFilterModelDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Report\ReportTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\DeepZoom\DeepZoomLinkTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Finding\DefectDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Finding\FindingsTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Common\IdValueProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Queries\DeepZoomLinkQueryProfile.cs" />
+    <Compile Include="AutoMapperProfiles\QuickFilters\DeepZoomLinkDataTableQuickFilterListDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Node\RegionDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Node\SiteDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Overview\BladeOverviewDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Overview\SummaryViewDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Tag\TagDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Tag\TagProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Tag\TagTableRowDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Overview\TimelineDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\Turbine\TurbineDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\UserManagment\IdValueGroupsProfile.cs" />
+    <Compile Include="AutoMapperProfiles\UserManagment\UserManagmentTableFilterModelDtoProfile.cs" />
+    <Compile Include="AutoMapperProfiles\UserManagment\UserManagmentTableRowDtoProfile.cs" />
+    <Compile Include="Controllers\CustomFilterController.cs" />
+    <Compile Include="Controllers\DefectChangeLogController.cs" />
+    <Compile Include="Controllers\NodeController.cs" />
+    <Compile Include="Controllers\BreadcrumbController.cs" />
+    <Compile Include="Controllers\FileUploadLogController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\AddDeepZoomLinkController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\DeletedItemsController.cs" />
+    <Compile Include="Controllers\DefectGroupActionsController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\AnnouncementController.cs" />
+    <Compile Include="Controllers\ReportGeneratorController.cs" />
+    <Compile Include="AutoMapperProfiles\Common\UserActivitiesDataTableProfile.cs" />
+    <Compile Include="Controllers\DetailedViewController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
+    <Compile Include="Controllers\TimelineController.cs" />
+    <Compile Include="Controllers\UserActivityController.cs" />
+    <Compile Include="Controllers\SummaryViewController.cs" />
+    <Compile Include="Controllers\BladeController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\DeepZoomLinkController.cs" />
+    <Compile Include="Controllers\DefectsController.cs" />
+    <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
+    <Compile Include="Controllers\TurbineController.cs" />
+    <Compile Include="Controllers\UserManagmentController.cs" />
+    <Compile Include="Dtos\Annotations\DeepZoomLinkAnnotationsDto.cs" />
+    <Compile Include="Dtos\Blades\BladeMapDefectDto.cs" />
+    <Compile Include="Dtos\Blades\BladeOverviewItemFilterModelDto.cs" />
+    <Compile Include="Dtos\Blades\BladeInfoDto.cs" />
+    <Compile Include="Dtos\Breadcrumb\BreadcrumbDto.cs" />
+    <Compile Include="Dtos\Common\FolderStructureDto.cs" />
+    <Compile Include="Dtos\Common\IdText.cs" />
+    <Compile Include="Dtos\Common\IdValue.cs" />
+    <Compile Include="Dtos\Common\ImageDto.cs" />
+    <Compile Include="Dtos\Common\PointDto.cs" />
+    <Compile Include="Dtos\Common\TextDto.cs" />
+    <Compile Include="Dtos\Filters\CustomFilterDto.cs" />
+    <Compile Include="Dtos\Filters\CustomFiltersTableDto.cs" />
+    <Compile Include="Dtos\Filters\CustomFiltersTableFilterModelDto.cs" />
+    <Compile Include="Dtos\Filters\CustomFiltersTableRowDto.cs" />
+    <Compile Include="Dtos\DeepZoomLink\FullPathDto.cs" />
+    <Compile Include="Dtos\ChangeLog\DefectChangeLogsTableDto.cs" />
+    <Compile Include="Dtos\ChangeLog\DefectChangeLogsTableFilterModelDto.cs" />
+    <Compile Include="Dtos\ChangeLog\DefectChangeLogsTableRowDto.cs" />
+    <Compile Include="Dtos\Feedbacks\ValueText.cs" />
+    <Compile Include="Dtos\Inspections\InspectionInfoDto.cs" />
+    <Compile Include="Dtos\Findings\DefectChangedQuality.cs" />
+    <Compile Include="Dtos\FileUploadLog\FileUpladLogTableRowDto.cs" />
+    <Compile Include="Dtos\FileUploadLog\FileUploadLogTableDto.cs" />
+    <Compile Include="Dtos\DeepZoomLink\AddNewDeepZoomLinkDto.cs" />
+    <Compile Include="Dtos\Log\LogTableDto.cs" />
+    <Compile Include="Dtos\Log\LogTableFilterModelDto.cs" />
+    <Compile Include="Dtos\Log\LogTableRowDto.cs" />
+    <Compile Include="Dtos\ChangePassword\ChangePasswordDto.cs" />
+    <Compile Include="Dtos\Dashboard\DashboardPreviewDto.cs" />
+    <Compile Include="Dtos\DeletedItems\DeletedItemsDto.cs" />
+    <Compile Include="Dtos\Findings\FindingsActionsDataTableFilterModelDto.cs" />
+    <Compile Include="Dtos\Breadcrumb\BreadcrumbInfoDto.cs" />
+    <Compile Include="Dtos\DeepZoomLink\DeepZoomLinkInfoDto.cs" />
+    <Compile Include="Dtos\Findings\FindingsForDeepZoomLinkDataTableFilterModelDto.cs" />
+    <Compile Include="Dtos\QuickFilters\DefectChangeLog\DefectChangeLogsDataTableQuickFilterListDto.cs" />
+    <Compile Include="Dtos\QuickFilters\UserManagement\UserManagementDataTableQuickFilterListDto.cs" />
+    <Compile Include="Dtos\QuickFilters\Feedback\FeedbackDataTableQuickFilterListDto.cs" />
+    <Compile Include="Dtos\Reports\ReportDto.cs" />
+    <Compile Include="Dtos\SummaryView\SummaryViewFilterModelDto.cs" />
+    <Compile Include="Dtos\Timeline\TimelineInspectionDto.cs" />
+    <Compile Include="Dtos\Timeline\TimelineDefectDto.cs" />
+    <Compile Include="Dtos\Findings\FindingsForDeepZoomLinkTableRowDto.cs" />
+    <Compile Include="Dtos\QuickFilters\DeepZoomLink\DeepZoomLinkDataTableQuickFilterListDto.cs" />
+    <Compile Include="Dtos\QuickFilters\Findings\FindingsDataTableQuickFilterListDto.cs" />
+    <Compile Include="Dtos\QuickFilters\QuickFilterListItemDto.cs" />
+    <Compile Include="Dtos\Feedbacks\FeedbacksTableDto.cs" />
+    <Compile Include="Dtos\Feedbacks\FeedbacksTableFilterModelDto.cs" />
+    <Compile Include="Dtos\Feedbacks\FeedbacksTableRowDto.cs" />
+    <Compile Include="Dtos\RequestAccess\RequestAccessDto.cs" />
+    <Compile Include="Dtos\ChangePassword\ResetPasswordDto.cs" />
+    <Compile Include="Dtos\SummaryView\SummaryViewItemFilterModelDto.cs" />
+    <Compile Include="Dtos\Reports\GetDataExtractReportDto.cs" />
+    <Compile Include="Dtos\Reports\ReportTableDto.cs" />
+    <Compile Include="Dtos\Node\NodeDto.cs" />
+    <Compile Include="Dtos\SummaryView\SummaryViewDto.cs" />
+    <Compile Include="Dtos\Annotations\AnnotationsDto.cs" />
+    <Compile Include="Dtos\Announcements\AnnouncementsTableDto.cs" />
+    <Compile Include="Dtos\Announcements\AnnouncementsTableFilterModelDto.cs" />
+    <Compile Include="Dtos\Announcements\AnnouncementsTableRowDto.cs" />
+    <Compile Include="Dtos\Blades\BladeOverviewDto.cs" />
+    <Compile Include="Dtos\Node\CountryDto.cs" />
+    <Compile Include="Dtos\Reports\ReportDataTableFilterModelDto.cs" />
+    <Compile Include="Dtos\DeepZoomLink\DeepZoomLinkDataTableFilterModelDto.cs" />
+    <Compile Include="Dtos\DeepZoomLink\DeepZoomLinkTableDto.cs" />
+    <Compile Include="Dtos\Reports\ReportTableRowDto.cs" />
+    <Compile Include="Dtos\DeepZoomLink\DeepZoomLinkTableRowDto.cs" />
+    <Compile Include="Dtos\Annotations\DefectAnnotationsDto.cs" />
+    <Compile Include="Dtos\Findings\DefectDto.cs" />
+    <Compile Include="Dtos\Findings\FindingsDataTableFilterModelDto.cs" />
+    <Compile Include="Dtos\Findings\FindingsTableDto.cs" />
+    <Compile Include="Dtos\Findings\FindingsTableRowDto.cs" />
+    <Compile Include="AutoMapperProfiles\Common\ImageDtoProfile.cs" />
+    <Compile Include="Dtos\Node\RegionDto.cs" />
+    <Compile Include="Dtos\Node\SiteDto.cs" />
+    <Compile Include="Dtos\Tags\TagDto.cs" />
+    <Compile Include="Dtos\Tags\TagsTableDto.cs" />
+    <Compile Include="Dtos\Tags\TagsTableFilterModelDto.cs" />
+    <Compile Include="Dtos\Tags\TagsTableRowDto.cs" />
+    <Compile Include="Dtos\Node\TurbineDto.cs" />
+    <Compile Include="Dtos\UserManagement\UserActivitySaveRequestDto.cs" />
+    <Compile Include="Dtos\UserManagement\UserActivityTableRowDto.cs" />
+    <Compile Include="Dtos\UserManagement\UserManagementTableDto.cs" />
+    <Compile Include="Dtos\UserManagement\UserManagementTableFilterModelDto.cs" />
+    <Compile Include="Dtos\UserManagement\UserManagementTableRowDto.cs" />
+    <Compile Include="Filters\AuthorizationUserAttribute.cs" />
+    <Compile Include="Filters\ElmahErrorAttribute.cs" />
+    <Compile Include="Filters\AuthorizationHeaderParameterOperationFilter.cs" />
+    <Compile Include="Filters\HangfireAuthFilter.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Helpers\IdentityHelper.cs" />
+    <Compile Include="Helpers\LocalUrlHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\HermesOnlineAuthorizationServerProvider.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HermesOnline.Core\HermesOnline.Core.csproj">
+      <Project>{97A57EC0-8264-489E-912B-601F138CC426}</Project>
+      <Name>HermesOnline.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HermesOnline.Data.Interface\HermesOnline.Data.Interface.csproj">
+      <Project>{BD32A606-C67B-4C92-8A0F-F39BED1352BF}</Project>
+      <Name>HermesOnline.Data.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HermesOnline.Domain.Identity\HermesOnline.Domain.Identity.csproj">
+      <Project>{686AF43C-442A-41F7-BEAF-A24D894DA5E1}</Project>
+      <Name>HermesOnline.Domain.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HermesOnline.Domain\HermesOnline.Domain.csproj">
+      <Project>{295D486C-2D40-454A-96DA-7F7AA9D20D5C}</Project>
+      <Name>HermesOnline.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HermesOnline.Service.Identity\HermesOnline.Service.Identity.csproj">
+      <Project>{92CC6D4C-491D-45E7-A1AD-6A6D0585DAD7}</Project>
+      <Name>HermesOnline.Service.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HermesOnline.Service\HermesOnline.Service.csproj">
+      <Project>{2432F89F-6898-4B47-B86F-45F0C2DA5642}</Project>
+      <Name>HermesOnline.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HermesOnline.Web.Framework\HermesOnline.Web.Framework.csproj">
+      <Project>{3E8FF24E-D9C8-4679-ABA6-73177C2E49E0}</Project>
+      <Name>HermesOnline.Web.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'siemenstesting|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'siemenslive|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56719</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56719/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\StyleCop.MSBuild.4.7.54.0\build\StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StyleCop.MSBuild.4.7.54.0\build\StyleCop.MSBuild.Targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <Import Project="..\packages\StyleCop.MSBuild.4.7.54.0\build\StyleCop.MSBuild.Targets" Condition="Exists('..\packages\StyleCop.MSBuild.4.7.54.0\build\StyleCop.MSBuild.Targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

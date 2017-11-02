@@ -1,0 +1,28 @@
+<div id="generateDataExtract">
+    <div>
+        <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+        <h4 class="modal-title">Generate Report</h4>
+    </div>
+    <hr>
+    <md-dialog-content>
+        <div class="form-inline">
+            <div class='row' style="margin-top: 16px;">
+                <div class="col-sm-4">
+                    <label>Image Options: </label>
+                </div>
+                <div class="col-sm-8">
+                    <md-radio-group [(ngModel)]='model.generateImages' name='generateImages'>
+                        <md-radio-button name='generateImages' [value]='false'>Include image links</md-radio-button>
+                        <md-radio-button name='generateImages' [value]='true'>Generate images</md-radio-button>
+                    </md-radio-group>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+<md-dialog-actions>
+        <div class='col-sm-12' style="padding-right: 0px;">
+            <button type="submit" (click)='submit()' md-raised-button style="margin-left:10px" class="pull-right" color='accent'>Generate</button>
+            <button md-raised-button md-dialog-close class="pull-right">Close</button>
+        </div>
+    </md-dialog-actions>
+</div>

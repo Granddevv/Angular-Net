@@ -1,0 +1,24 @@
+<div style="position:relative;">
+    <a target="_blank" routerLink="/preview/image/{{finding.imageId}}/{{finding.id}}">
+        <img id='img' (error)='imageLoadError($event)' src='/api/image/thumbnailresizedfordefect/{{finding.id}}'  align="middle" class="img-responsive" style="width: 500px !important; height: 300px !important;"/>
+    </a>
+    <div style="position:absolute;top:0;left:0;z-index:5;">
+        <i *ngIf="findings.length > 1" (click)="slideUp()" class="material-icons" style="font-size:48px; cursor: pointer;">keyboard_arrow_up</i>
+        <br/>
+        <i *ngIf="findings.length > 1" (click)="slideDown()" class="material-icons" style="font-size:48px; cursor: pointer;">keyboard_arrow_down</i>
+    </div>
+</div>
+<div style="margin-top: 30px;">
+    <span [ngStyle]="{color: severityColor()}">{{finding.name}}</span>
+    <span>- R[m] {{finding.distanceToRoot}}</span>
+</div>
+<div>
+    <div id="inspectionDate"><span class="inspectionDate">{{finding.inspectionDate}}</span></div>
+    <div id="point-inspectionDate"></div>
+</div>
+<div>
+    <div id="line" class="{{getCssClassBySeverity()}}">
+        <div id="circle"></div>
+    </div>
+    <div id="point" [ngStyle]="{color: severityColor()}"></div>
+</div>

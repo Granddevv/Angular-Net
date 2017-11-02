@@ -1,0 +1,34 @@
+<div>
+  <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+  <h4 class="modal-title">Tag View</h4>
+</div>
+<hr>
+<md-dialog-content>
+  <div class="form-group">
+    <md-input-container>
+      <input autofocus mdInput disabled placeholder="Name" readonly [(ngModel)]="tag.name" name="name" #name="ngModel">
+    </md-input-container>
+  </div>
+  <div class="form-group">
+    <md-input-container>
+      <textarea autofocus mdInput disabled placeholder="Description" readonly [(ngModel)]="tag.description" name="description"
+        #description="ngModel"></textarea>
+    </md-input-container>
+  </div>
+  <div class="form-group">
+    <md-input-container>
+      <input autofocus mdInput disabled placeholder="Date modified" readonly [(ngModel)]="tag.createdOn" name="createdOn" #createdOn="ngModel">
+    </md-input-container>
+  </div>
+  <div class="form-group">
+    <md-input-container>
+      <input autofocus mdInput disabled placeholder="Modified by" readonly [(ngModel)]="tag.modifiedBy" name="modifiedBy" #modifiedBy="ngModel">
+    </md-input-container>
+  </div>
+  <div class="form-group">
+    <input class='colorPicker ' disabled readonly [style.background]="tag.color" />
+  </div>
+</md-dialog-content>
+<md-dialog-actions style="margin-left: 477px;">
+  <button md-raised-button md-dialog-close>Close</button>
+</md-dialog-actions>

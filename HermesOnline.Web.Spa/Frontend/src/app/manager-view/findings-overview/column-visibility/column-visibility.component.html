@@ -1,0 +1,19 @@
+<li class="dropdown" dropdown>
+  <a class="dropdown-toggle" (click)="status = {isopen:true}" data-toggle="dropdown" title="Column selection"
+    data-toggle="tooltip" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle><i class="material-icons md-dark">visibility</i></a>
+  <div class="dropdown-menu" *dropdownMenu (click)='$event.stopPropagation();' >
+    <div class="container-fluid">
+      <div class='infoMsg'>You selected {{numOfSelectedColumns}} of 10 columns</div>
+      <div class="form-inline" id='columnVisibility'>
+        <ul style="column-count: 2; list-style-type: none; white-space:nowrap">
+          <li *ngFor="let column of columns">
+            <input id={{column.name}} type="checkbox" [(ngModel)]='column.checked' (change)='onSelect($event.target.checked)' [disabled]="isDisabled(column)"><label for={{column.name}}>{{column.name}}</label>
+          </li>
+        </ul>
+      </div>
+      <div class="form-inline  text-right" id='saveBtn'>
+        <button class="btn save-columns-visibility" (click)='save()'>Save</button>
+      </div>
+    </div>
+  </div>
+</li>

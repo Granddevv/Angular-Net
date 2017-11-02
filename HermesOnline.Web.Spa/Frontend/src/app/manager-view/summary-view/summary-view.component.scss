@@ -1,0 +1,15 @@
+@import './src/variables.scss';
+
+#error-message{
+    font-size: 30px;
+    @media (max-width: $break-large) {
+        font-size: $error-message !important;
+    }
+    color: red;
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+#summary-view{
+    margin-top: 2%;
+}

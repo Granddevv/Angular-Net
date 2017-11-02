@@ -1,0 +1,12 @@
+<div>
+  <i class="material-icons" id='clearBtn' (click)='close()'>clear</i>
+  <div *ngIf="fileType === AnnouncementFileType.Video">
+    <video autoplay controls controlsList="nodownload">
+      <source src="/api/announcement/preview/{{id}}">
+    </video>
+  </div>
+
+  <div *ngIf="fileType === AnnouncementFileType.Image">
+    <img src="/api/announcement/preview/{{id}}" alt="announcement-image-preview">
+  </div>
+</div>

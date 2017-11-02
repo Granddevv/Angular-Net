@@ -1,0 +1,16 @@
+@import './src/variables.scss';
+
+.toogle-content {
+    font-family: 'Open Sans';
+    @media (max-width: $break-large) {
+        font-size: $toogle-content-font !important;
+    }
+}
+.col-md-6, .col-md-4, .col-md-2{
+     padding-right: 0px;
+}
+
+#loader img{
+  margin-left: 13% !important;
+  margin-top: 4% !important;
+}

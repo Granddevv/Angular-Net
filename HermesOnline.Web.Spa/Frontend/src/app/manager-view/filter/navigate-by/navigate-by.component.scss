@@ -1,0 +1,21 @@
+::-webkit-scrollbar {
+    width: 2px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb { 
+    background: #2f2041;
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+.navigateby-scroll{
+    overflow-x: auto;   
+    overflow-y: hidden;   
+    max-height: 410px;
+    padding: 0px;
+    column-width: 160px;
+}
+
+.navigateby-scroll.site {
+    column-width: 220px; 
+}

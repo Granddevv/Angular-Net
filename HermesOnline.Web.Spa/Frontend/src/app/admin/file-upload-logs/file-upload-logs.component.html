@@ -1,0 +1,9 @@
+<div style="margin-left: 2.5%;margin-bottom: 10px">
+  <h4 class="modal-title" style="opacity: 0.7;margin-left: 10px;">File Upload Logs</h4>
+</div>
+<div id="file-upload-logs-datatable" class="row">
+  <ngx-datatable class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [count]="count" [offset]="offset" [limit]="limitPerPage"
+    (page)='onPage($event)'>
+  </ngx-datatable>
+</div>

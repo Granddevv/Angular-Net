@@ -1,0 +1,44 @@
+<div id="loader" *ngIf='loading' style="z-index:902;position: fixed; width: 100%; height: 100%;">
+  <img src="{{loaderImage.src}}" />
+</div>
+<form #tagForm="ngForm" id='createTagForm'>
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title" *ngIf='!tag.id'>Add New Tag</h4>
+    <h4 class="modal-title" *ngIf='tag.id'>Edit Tag</h4>
+  </div>
+  <hr>
+  <div [ngStyle]="{opacity: loading ? '0.5': '1'}">
+    <md-dialog-content>
+      <div class="form-group">
+        <md-input-container>
+          <input autofocus mdInput maxlength="30" [disabled]="tag.id || isSubmitted" placeholder="Name" required [(ngModel)]="tag.name"
+            name="name" #name="ngModel" (focusout)='focusoutName()' (focus)='focusName()'>
+        </md-input-container>
+        <div *ngIf="showNameError" class='errorMsg'>
+          *The Title field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <md-input-container id='tagDescription'>
+          <textarea rows='5' mdInput maxlength="100" placeholder="Description" required [(ngModel)]="tag.description" name="description"
+            #description="ngModel" (focusout)='focusoutDescription()' (focus)='focusDescription()' [disabled]="isSubmitted"></textarea>
+        </md-input-container>
+        <div *ngIf="showDescriptionError" class='errorMsg'>
+          *The Description field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <input class='colorPicker' [disabled]="'true' || isSubmitted" [style.background]="tag.color" />
+      </div>
+    </md-dialog-content>
+  </div>
+  <md-dialog-actions style="margin-left: 377px;">
+    <button md-raised-button md-dialog-close>Close</button>
+    <button (click)='sendData()' md-raised-button style=" margin-left: 5px;" color='accent' [disabled]="!tagForm.form.valid || isSubmitted || loading">Submit</button>
+  </md-dialog-actions>
+  <div>
+    <img *ngIf="loading" id="login-loader" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+    />
+  </div>
+</form>

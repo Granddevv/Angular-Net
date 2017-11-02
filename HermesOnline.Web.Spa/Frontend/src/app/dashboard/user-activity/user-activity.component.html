@@ -1,0 +1,14 @@
+<div id="useractivity-datatable" class="row">
+  <ngx-datatable 
+      class="material" 
+      [rows]="dataRows" 
+      [columnMode]="'force'" 
+      [columns]="columns" 
+      [headerHeight]="50" 
+      [footerHeight]="0"
+      [rowHeight]="'auto'" 
+      [selectionType]="'single'"
+      (select)='onSelect($event)'
+      [loadingIndicator]="loadingIndicator">
+  </ngx-datatable>
+</div>

@@ -1,0 +1,11 @@
+<div id="zoomInfo-{{deepZoomLinkInfo.deepZoomLinkId}}" class='deep-zoom-info' style="top: 14px;">
+    <strong></strong>
+</div>
+<div id="distanceToRoot-{{deepZoomLinkInfo.deepZoomLinkId}}" class='deep-zoom-info' style="top: 44px;">
+    <strong></strong>
+</div>
+<div id="{{'openSeadragon-' + deepZoomLinkInfo.deepZoomLinkId}}" style="height: 900px; background-color:black">
+    <div id="{{'canvasContainer-' + deepZoomLinkInfo.deepZoomLinkId}}" [hidden]="!measureDistance" style="position: absolute; z-index: 1;">
+        <canvas id="{{'canvasDraw-' + deepZoomLinkInfo.deepZoomLinkId}}" style="background: none transparent; border: none; margin: 0; padding: 0; position: absolute;"></canvas>
+    </div>
+</div>

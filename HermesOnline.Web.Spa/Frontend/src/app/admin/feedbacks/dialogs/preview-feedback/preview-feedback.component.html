@@ -1,0 +1,42 @@
+<div id="feedbackCommentForm">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Feedback View</h4>
+  </div>
+  <hr>
+  <md-dialog-content>
+    <div class="form-group">
+      <md-input-container>
+        <input autofocus mdInput disabled placeholder="User" readonly [(ngModel)]="feedback.user" name="user" #user="ngModel">
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input autofocus mdInput disabled placeholder="Type" readonly [(ngModel)]="feedback.type" name="type" #type="ngModel">
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <textarea mdInput disabled placeholder="Description" readonly [(ngModel)]="feedback.description" name="description" #description="ngModel"></textarea>
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <textarea mdInput disabled placeholder="Comment" readonly [(ngModel)]="feedback.comment " name="comment " #comment="ngModel"></textarea>
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input autofocus disabled mdInput placeholder="File name" readonly [(ngModel)]="feedback.fileName" name="fileName" #fileName="ngModel">
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <textarea mdInput readonly disabled mdInput placeholder="Url" [(ngModel)]="feedback.link " name="link" #link="ngModel"></textarea>
+      </md-input-container>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions style="margin-left: 477px;">
+    <button md-raised-button md-dialog-close>Close</button>
+  </md-dialog-actions>
+</div>

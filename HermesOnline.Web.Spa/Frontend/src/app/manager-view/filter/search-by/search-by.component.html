@@ -1,0 +1,28 @@
+<div class="row">
+    <div class='col-md-12'>
+        <div class="input-group m-b search-input">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            <input #autofocus type="text" [formControl]="searchControl" [(ngModel)]="searchValue"  placeholder="Find Windfarms, Turbines or Blades" class="form-control">
+        </div>
+    </div>
+    <div *ngIf="searchValue" class='pointer'>
+        <div class="col-md-4">
+            <h3>Windfarms</h3>
+            <ul *ngFor="let site of sites">
+                <span [routerLink]="['/managerview', {outlets: {'filter':['site',site.id], 'findings':['tab', Tab.Findings,'type', nodeType.Site ,'id', site.id]}}]">{{site.value}}</span>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Turbines</h3>
+            <ul *ngFor="let turbine of turbines">
+                <span [routerLink]="['/managerview', {outlets: {'filter':['turbine',turbine.id], 'findings':['tab', Tab.Findings,'type', nodeType.Turbine ,'id', turbine.id]}}]">{{turbine.value}}</span>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Blades</h3>
+            <ul *ngFor="let blade of blades">
+                <span [routerLink]="['/managerview', {outlets: {'filter':['blade',blade.id], 'findings':['tab', Tab.Findings,'type', nodeType.Blade ,'id', blade.id]}}]">{{blade.value}}</span>
+            </ul>
+        </div>
+    </div>
+</div>

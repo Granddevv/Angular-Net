@@ -1,0 +1,87 @@
+<div id="defect-change-logs-datatable" class="row">
+  <div style="margin-left: 3.5%;">
+    <h4 class="modal-title" style="opacity: 0.7; margin-left: 5px">Finding Change Log</h4>
+  </div>
+  <div id="defectChangeLogHeader">
+    <a (click)="generateFindingChangeLogReport()" data-toggle="tooltip" title="Report generation" style="color: grey; margin-left: 97.5%; cursor: pointer"
+      aria-expanded="false"><i class="material-icons md-dark">description</i></a>
+  </div>
+  <div style="margin-top: 1.1%">
+    <ngx-datatable #table class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+      [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [count]="count" [offset]="offset" [limit]="limitPerPage"
+      [selected]="selected" (page)='onPage($event)' (sort)="onSort($event)" [loadingIndicator]="loadingIndicator">
+    </ngx-datatable>
+
+    <template #actionsTemplate let-row="row">
+      <div class="btn-group threedots-style" id="action-dropdown-menu" dropdown [autoClose]="'nonInput'">
+        <button id="single-button" type="button" class="btn" dropdownToggle>
+      <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+    </button>
+        <ul *dropdownMenu role="menu" aria-labelledby="single-button" class="dropdown-menu dropdown-menu-right">
+          <li role="menuitem"><a color="warn" (click)='view(row)' class="dropdown-item" href="javascript:void(0)"><i class="fa fa-eye"></i> View</a></li>
+          <li role="menuitem"><a class="dropdown-item" (click)='viewImage(row)'><i class="fa fa-file-image-o" aria-hidden="true"></i> View image</a></li>
+          <li role="menuitem"><a color="warn" (click)='cancel(row)' class="dropdown-item" href="javascript:void(0)"><i class="fa fa-times"></i> Cancel</a></li>
+        </ul>
+      </div>
+    </template>
+
+    <template #commentTemplate let-value='value'>
+      {{value | truncate : 40}}
+    </template>
+
+    <template #dateTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+    </template>
+
+    <template #userTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+    </template>
+
+    <template #originalLayerTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+      <app-quick-filter [filterList]="quickFiltersList.originalLayer" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.originalLayer)"></app-quick-filter>
+    </template>
+
+    <template #originalTypeTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+      <app-quick-filter [filterList]="quickFiltersList.originalCategory" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.originalCategory)"></app-quick-filter>
+    </template>
+
+    <template #originalSeverityTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+      <app-quick-filter [filterList]="quickFiltersList.origanalSeverity" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.origanalSeverity)"></app-quick-filter>
+    </template>
+
+    <template #newTypeTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+      <app-quick-filter [filterList]="quickFiltersList.newCategory" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.newCategory)"></app-quick-filter>
+    </template>
+
+    <template #newSeverityTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+      <app-quick-filter [filterList]="quickFiltersList.newSeverity" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.newSeverity)"></app-quick-filter>
+    </template>
+
+    <template #newLayerTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+      <app-quick-filter [filterList]="quickFiltersList.newLayer" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.newLayer)"></app-quick-filter>
+    </template>
+
+    <template #siteTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+      <app-quick-filter [filterList]="quickFiltersList.site" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.site)"></app-quick-filter>
+    </template>
+
+    <template #serialNumberTemplate let-column="column" let-sort="sortFn">
+      <div (click)="sort()">{{column.name}}</div>
+    </template>
+
+    <template #commentHeaderTemplate let-column="column">
+      <div>{{column.name}}</div>
+    </template>
+
+    <template #actionHeaderTemplate let-column="column">
+      <div>{{column.name}}</div>
+    </template>
+  </div>
+</div>

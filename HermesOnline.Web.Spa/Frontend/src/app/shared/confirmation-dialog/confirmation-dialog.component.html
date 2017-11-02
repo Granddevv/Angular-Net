@@ -1,0 +1,14 @@
+<div>
+    <button class='closeBtn' (click)='dialogRef.close(false)'><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Confirmation</h4>
+</div>
+<hr>
+<md-dialog-content>
+    {{title}}
+</md-dialog-content>
+<md-dialog-actions style="margin-left: 377px;">
+    <div class='col-sm-12' style="padding-right: 0px;">
+        <button md-raised-button style="margin-left:10px" class="pull-right" color='accent' (click)='dialogRef.close(true)'>Yes</button>
+        <button md-raised-button class="pull-right" (click)='dialogRef.close(false)'>Cancel</button>
+    </div>
+</md-dialog-actions>

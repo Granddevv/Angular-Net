@@ -1,0 +1,10 @@
+@import './src/variables.scss';
+
+.dashboard-fonts{
+    color:#b91372;
+    font-size: 400%;
+    font-weight: bolder;
+    @media (max-width: $break-large) {
+        font-size: $dashboard-fonts !important;
+    }
+}

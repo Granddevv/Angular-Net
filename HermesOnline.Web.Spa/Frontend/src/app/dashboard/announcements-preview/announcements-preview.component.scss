@@ -1,0 +1,24 @@
+#announcements .carousel-caption {
+    right: 20%;
+    left: 20%;
+    height: 500px;
+}
+
+#announcements .carousel-control{
+    width: 0px !important;
+    cursor: pointer;
+    margin-top: 150px;
+    text-align: center;
+}
+
+#announcements .carousel-item{
+    padding-top: 600px !important;
+}
+
+#announcements .description{
+   word-wrap: break-word;
+}
+
+#announcements .carousel-indicators{
+  bottom: 100px;
+}

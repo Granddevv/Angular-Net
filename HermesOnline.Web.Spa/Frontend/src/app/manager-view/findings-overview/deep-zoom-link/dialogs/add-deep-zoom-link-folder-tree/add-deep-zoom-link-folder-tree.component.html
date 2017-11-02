@@ -1,0 +1,15 @@
+<div id="addDeepZoomTree">
+  <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+   <h4 class="modal-title">Select DeepZoom Link Folder</h4>
+   <hr>
+  <md-dialog-content>
+    <app-tree [treeModel]="tree" (nodeSelected)="selectedFolder($event)"></app-tree>
+  </md-dialog-content>
+  <div class="form-group">
+    <span>Selected path: {{ fullPath }}</span>
+  </div>
+  <div class="pull-right deep-zoom-link-modal-buttons">
+    <button class="btn" md-raised-button md-dialog-close>Close</button>
+    <button (click)="chooseFolder()" style="margin-left: 5px;" [disabled]='!fullPath' color='accent' md-raised-button class="btn">Select</button>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div id="loader" *ngIf='loading' style="z-index:902;position: fixed; width: 100%; height: 100%;">
+  <img src="{{loaderImage.src}}" />
+</div>
+<form #deleteFindingForm="ngForm" (ngSubmit)="sendData($event)" enctype="multipart/form-data" id="deleteFinding">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Delete Data</h4>
+  </div>
+  <hr>
+  <div [ngStyle]="{opacity: loading ? '0.5': '1'}">
+    <md-dialog-content>
+      <div>
+        <span style="font-size:15px;font-family: Open Sans">Fleet</span>
+        <ng-select [items]="fleetList" (data)="refreshValue($event)" (selected)="selectedFleet($event)" placeholder="Select fleet">
+        </ng-select>
+      </div>
+      <div style="margin-top: 15px">
+        <span style="font-size:15px;font-family: Open Sans">Site</span>
+        <ng-select [items]="siteList" [disabled]="!deleteData.fleetId" (data)="refreshValue($event)" (selected)="selectedSite($event)"
+          placeholder="Select site">
+        </ng-select>
+      </div>
+      <div style="margin-top: 15px">
+        <span style="font-size:15px;font-family: Open Sans">Turbine</span>
+        <ng-select [items]="turbineList" [disabled]="!deleteData.siteId" (data)="refreshValue($event)" (selected)="selectedTurbine($event)"
+          placeholder="Select turbine">
+        </ng-select>
+      </div>
+      <div style="margin-top: 15px">
+        <span style="font-size:15px;font-family: Open Sans">Inspection</span>
+        <ng-select [allowClear]="true" [disabled]="!deleteData.turbineId" [items]="inspectionList" (data)="refreshValue($event)"
+          (selected)="selectedInspection($event)" placeholder="Select inspection">
+        </ng-select>
+      </div>
+    </md-dialog-content>
+  </div>
+  <md-dialog-actions style="margin-left: 377px;">
+    <button md-raised-button md-dialog-close>Close</button>
+    <button type="submit" [disabled]="deleteData.fleetId == null || deleteData.siteId == null || deleteData.turbineId == null"
+      md-raised-button color='accent' style="margin-left: 5px;">Delete</button>
+  </md-dialog-actions>
+</form>

@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div class="row" id="page-details-loader" [ngStyle]="{display: showSpinner ? 'block': 'none'}">
+    <span class="loading-icon spin"></span>
+</div>
+
+<div [ngStyle]="{opacity: showSpinner ? '0.0': '1'}" style="margin-left: 50px; margin-right: 97px;">
+    <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

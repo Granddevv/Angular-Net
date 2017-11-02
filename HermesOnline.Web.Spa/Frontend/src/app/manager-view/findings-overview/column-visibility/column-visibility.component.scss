@@ -1,0 +1,31 @@
+#columnVisibility{
+    width: 300px;
+}
+
+#columnVisibility label{
+    font-weight: normal !important;
+    margin-left: 5px;
+}
+
+#saveBtn{
+    margin-top: 10px;
+}
+
+button.save-columns-visibility {
+    width: 30%;
+    padding: 3px;
+    margin-left: 20%;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.material-icons.md-dark {
+    color: grey 
+}
+
+.infoMsg{
+    color: #cd3454;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}

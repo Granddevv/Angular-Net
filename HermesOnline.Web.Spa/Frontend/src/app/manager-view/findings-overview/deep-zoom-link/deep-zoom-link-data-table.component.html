@@ -1,0 +1,70 @@
+<div id="deep-zoom-links-datatable" class="row">
+  <ngx-datatable #table class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [count]="count" [offset]="offset" [limit]="limitPerPage"
+    (page)='onPage($event)' (sort)="onSort($event)" [loadingIndicator]="loadingIndicator">
+  </ngx-datatable>
+
+  <!--Column header templates-->
+  <template #windFarmHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.site" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.site)"></app-quick-filter>
+  </template>
+
+  <template #turbineSerialHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.turbineSerial" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.turbineSerial)"></app-quick-filter>
+  </template>
+
+  <template #turbineHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.turbine" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.turbine)"></app-quick-filter>
+  </template>
+
+  <template #bladeHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.blade" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.blade)"></app-quick-filter>
+  </template>
+
+  <template #surfaceHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.surface" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.surface)"></app-quick-filter>
+  </template>
+
+  <template #dateHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.date" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.date)"></app-quick-filter>
+  </template>
+
+  <template #photoSourceHeaderTemplate let-column="column">
+    <div>{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.photoSource" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.photoSource)"></app-quick-filter>
+  </template>
+
+  <template #inspectionHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.inspection" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.inspection)"></app-quick-filter>
+  </template>
+
+  <template #actionsHeaderTemplate let-column="column">
+    <div style="margin-bottom: 30px;">{{column.name}}</div>
+  </template>
+
+  <!--Row cells templates-->
+  <template #inspectionCellTemplate let-row="row" let-value="value" let-i="index">
+    <a target="_blank" [routerLink]="['/preview','deepzoomlink', row.id]">{{ value }}</a>
+  </template>
+
+  <template #actionsCellTemplate let-row="row">
+    <div class="btn-group threedots-style" id="action-dropdown-menu" dropdown [autoClose]="'nonInput'">
+      <button id="single-button" type="button" class="btn" dropdownToggle>
+      <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+    </button>
+      <ul *dropdownMenu role="menu" aria-labelledby="single-button" class="dropdown-menu dropdown-menu-right">
+        <li role="menuitem"><a (click)="compare(row.id)" class="dropdown-item" href="javascript:void(0)"><i class="fa fa-files-o" aria-hidden="true"></i> Compare</a></li>
+        <li role="menuitem"><a (click)="compareToSameBlade(row.bladeId, row.id)" class="dropdown-item" href="javascript:void(0)"><i class="fa fa-files-o" aria-hidden="true"></i> Compare to same blade</a></li>
+        <li role="menuitem"><a class="dropdown-item" target="_blank" [routerLink]="['/preview','deepzoomlink', row.id]"><i class="fa fa-file-image-o" aria-hidden="true"></i> View image</a></li>
+        <li role="menuitem" appHasAnyPermission [permissions]="[Permissions.DeleteDeepZoomLinks]"><a class="dropdown-item" (click)="delete(row)" href="javascript:void(0)"><i class="fa fa-trash-o"></i> Delete</a></li>
+      </ul>
+    </div>
+  </template>
+</div>

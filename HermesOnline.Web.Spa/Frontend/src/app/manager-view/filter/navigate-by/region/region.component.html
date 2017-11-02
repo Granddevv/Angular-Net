@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-center">Navigate by regions</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-center pointer"  [ngClass]="{'navigateby-scroll' : numOfColumn(regions) > 1}" [ngStyle]="{'column-count': numOfColumn(regions) }" >
+            <ul *ngFor="let region of regions">
+                <a class="region" href="javascript:void(0)" [routerLink]="['/managerview', {outlets: {'filter':['navigateby', region.id], 'findings':['tab', Tab.Findings, 'type', nodeType.Region,'id', region.id]}}]" >{{region.value}} ({{region.numOfSites}})</a>
+            </ul>
+        </div>
+    </div>
+</div>

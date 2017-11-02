@@ -1,0 +1,35 @@
+<app-breadcrumb [defectId]='selectedFindingId'></app-breadcrumb>
+<div *ngIf='isInitialized' class='row'>
+    <div class="col-md-1">
+        <i *ngIf="canSlideLeft()" (click)="slideLeft()" class="material-icons" style="font-size:64px; cursor: pointer;">keyboard_arrow_left</i>
+    </div>
+    <div class="col-md-10">
+        <div class='row'>
+            <div *ngFor="let inspection of inspections" class="col-md-4" style="display: table;">
+                <app-timeline-view-item [findings]='inspection.findings'></app-timeline-view-item>
+                <!--<div class="row" style="padding: 10px;">
+                    <ul class="navbar-left" style="list-style: none; padding: 0px;">
+                        <li class="dropdown" dropdown>
+                            <button class="btn dropdown-toggle" dropdownToggle type="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="aui-icon-small aui-iconfont-more"></span>
+                        </button>
+                            <div class="dropdown-menu" *dropdownMenu>
+                                <li>
+                                    <a target="_blank" routerLink="/preview/image/{{defect.imageId}}/{{defect.id}}"> <i class="fa fa-file-image-o" aria-hidden="true"></i> View image</a>
+                                </li>
+                                <li *ngFor="let year of getDefectYearsForCompare(defect.id)">
+                                    <a href="javascript:void(0)"><i class="fa fa-exchange" aria-hidden="true"></i> Compare to {{year}}</a>
+                                </li>
+                            </div>
+                        </li>
+                    </ul>
+                </div>-->
+                <!--<div class="row" style="height: 10px" class="{{getCssClassBySeverity(defect.severity)}}">
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <i *ngIf="canSlideRight()" (click)="slideRight()" class="material-icons" style="font-size:64px; cursor: pointer;">keyboard_arrow_right</i>
+    </div>
+</div>

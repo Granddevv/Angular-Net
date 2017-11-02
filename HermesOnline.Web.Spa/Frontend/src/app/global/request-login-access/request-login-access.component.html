@@ -1,0 +1,54 @@
+<div class="login-container">
+  <img class="login-logo" height="80" width="300" src="assets/siemens-logo-white.png" alt="siemens-logo-white">
+  <div class='loginscreen'>
+    <h4 style="margin-left: 20px;" *ngIf='showInfo'>
+      <div>
+        <h3> Hello {{model.firstName}} {{model.lastName}}</h3>
+        <h4> {{showInfo}}</h4>
+        <a [routerLink]="['/login']">Go to login</a>
+      </div>
+    </h4>
+    <div *ngIf='!showInfo'>
+      <div class="request-access">Request access to Hermes</div>
+      <form #reguestLoginForm="ngForm" (submit)='submit()'>
+        <div class="form-group-small">
+          <input type="text" class="input-gray" minlength="2" (focusout)='checkFirstNameLength()' id='firstName' name="firstName" [(ngModel)]="model.firstName"
+            #firstName='ngModel' placeholder="First Name" required/>
+          <div *ngIf="errors.firstNameLength" class="help-block">First name must be at least 2 character long.</div>
+        </div>
+        <div class="form-group-small">
+          <input type="text" class="input-gray" minlength="2" id='lastName' (focusout)='checkLastNameLength()' name="lastName" [(ngModel)]="model.lastName"
+            #lastName='ngModel' placeholder="Last Name" required/>
+          <div *ngIf="errors.lastNameLength" class="help-block">Last name must be at least 2 character long.</div>
+        </div>
+        <div class="form-group-small">
+          <input type="email" class="input-gray" id='userName' (focusout)='checkExistingEmail()' (focusout)='checkEmailValidation()'
+            name="userName" [(ngModel)]="model.userName" #userName='ngModel' placeholder="Email Address" required/>
+          <div *ngIf="errors.emailExists" class="help-block">Email is already in use.</div>
+          <div *ngIf="errors.emailValidate" class="help-block">Email must contain ' @ ' and ' . '</div>
+        </div>
+        <div class="form-group-small">
+          <input type="text" (keypress)='validatePhoneNumber($event)' class="input-gray" id='phone' name="phoneNumber" [(ngModel)]="model.phoneNumber"
+            #phone='ngModel' placeholder="Phone Number" />
+        </div>
+        <div class="form-group-small">
+          <input type="password" class="input-gray" id='password' name="password" [(ngModel)]="model.password" minlength="6" #password='ngModel'
+            (focusout)='checkPasswordLength()' placeholder="Password" required/>
+          <div *ngIf="this.errors.passwordLength" class="help-block">Password must be at least 6 character long.</div>
+        </div>
+        <div class="form-group-small">
+          <input type="password" class="input-gray" id='confirmPassword' name="confirmPassword" minlength="6" (focusout)='checkPassword()'
+            [(ngModel)]="model.confirmPassword" #confirmPassword='ngModel' placeholder="Confirm Password" required/>
+          <div *ngIf="this.errors.passwordNotMatch" class="help-block">The password and confirmation password do not match.</div>
+        </div>
+        <div class="form-group-small">
+          <button class="btn-pink" type="submit" [disabled]="!reguestLoginForm.form.valid || loading || this.hasError()">Request Access</button>
+          <img *ngIf="loading" id="login-loader" src="{{loaderImage.src}}" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="copyright">
+    Copyright © Siemens Wind Power
+  </div>
+</div>

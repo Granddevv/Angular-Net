@@ -1,0 +1,119 @@
+#finding-structure-title {
+  padding-bottom: 15px;
+  margin-top: 10px;
+}
+
+.row.finding-detail-container {
+  margin-left: 20px;
+  margin-right: 30px;
+  background: rgba(226, 64, 64, 0.1);
+  margin-top: 10px;
+}
+
+.pic {
+  width: 576px;
+  height: 380px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 3px 0 var(--ho_color_text_secondary);
+}
+
+#Rectangle-7 {  
+  position: relative;
+  padding-left: 30px;
+  padding-top: 10px;
+  width: 690px;
+  height: 190px;
+  background-image: linear-gradient(#181535, #181535), linear-gradient(284deg, #192060, #4b1d66);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+  background-color:rgba(0,0,0,0.5);
+  margin-top: 30px;
+  margin-left: -5px;
+}
+
+#moveUpDiv{
+  position: absolute;
+  top: 30px;
+  right: -15px; 
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #e6f8f6;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#moveUpDiv .moveUpIcon{
+  color: #929292; 
+  padding-left: 2px;
+  padding-top: 2px;
+}
+
+#moveDownDiv .moveDownIcon{
+ color: #929292; 
+ padding-left: 2px; 
+ padding-top: 4px;
+}
+
+#moveDownDiv{
+  position: absolute;
+  bottom: 30px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #e6f8f6;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#Severity-Label {
+  width: 462px;
+  height: 35px;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.46;
+  letter-spacing: normal;
+  text-shadow: 0 1px 3px #000000;
+}
+
+.layer {
+  font-size: 36px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  color: #ffffff;
+  color: var(--ho_color_text_primary_inverse);
+}
+
+.RLA-m {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  color: rgba(255, 255, 255, 0.7);
+  color: var(--ho_color_text_secondary_inverse);
+}
+
+.closeScale {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 1;
+  }
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.rotate {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}

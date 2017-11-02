@@ -1,0 +1,45 @@
+#line {
+    width:96%;
+    height:15px;
+    float:left;
+}
+#point {    
+    width: 0;
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 8px solid;
+    float:left;
+}
+#circle {    
+    width: 10px;
+    height: 10px; 
+    background-color: #41ead4;
+    margin-left: 70%;
+    border-radius: 100%;
+    border-color: white;
+    border: 1px solid;
+    margin-top: 3px;
+}
+#inspectionDate {    
+    width:60px;
+    margin-left: 62%;
+    height:20px;
+    float:left;
+    background: white;
+    margin-top: -20px;
+    border-radius: 15%;
+}
+#point-inspectionDate {   
+    width: 0;
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid white;
+    margin-left: 67%;
+}
+span.inspectionDate {
+    font-size: 10px;
+    color: black;
+    margin-left: 3px;
+}

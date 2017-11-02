@@ -1,0 +1,29 @@
+<div>
+  <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+  <h4 class="modal-title">Import Findings</h4>
+</div>
+<hr>
+<md-dialog-content>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <span id="file-import-findings" class="btn btn-primary fileinput-button" style="margin-left: -16px;" *ngIf="!isSubmitted">
+          <i class="fa fa-upload"></i>
+          <span>Select file...</span>
+      <input ngFileSelect type="file" id="file" class="inputfile" #fileInput [events]="importFindingsEvent" [disabled]="isSubmitted" (onPreviewData)="handlePreviewData($event)"
+        (change)="handlePreviewData($event)" [options]="options">
+      </span>
+      <div id="attached-files" class="attached-reports-container" *ngIf='importFindingsFileName.length != 0'>
+        <!--<div class='col-lg-1'><button id='remove-attached-report-file' (click)="removeFile()" type='button' class='close remove-file'><span>&times;</span></button></div>-->
+        <div class='col-lg-11'>
+          <p class='filename'>{{importFindingsFileName}}</p>
+        </div>
+         <div *ngIf="!allowedExtensions" class="errorMsg">Allowed extensions is 'ZIP'</div>
+      </div>
+      <div *ngIf="progress>0">{{progress}} %</div>
+    </div>
+  </div>
+</md-dialog-content>
+<md-dialog-actions style="margin-left: 377px;">
+  <button md-raised-button (click)='close()'>Close</button>
+  <button (click)='sendData()' [disabled]="isSubmitted || importFindingsFileName.length == 0" md-raised-button color='accent' style="margin-left: 5px;">Import</button>
+</md-dialog-actions>

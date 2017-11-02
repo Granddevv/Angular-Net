@@ -1,0 +1,45 @@
+<div id="loader" *ngIf='loading' style="z-index:902;position: fixed; width: 100%; height: 100%;">
+    <img src="{{loaderImage.src}}" />
+</div>
+<form (ngSubmit)='submit()' #form="ngForm" id="comparisonReportGeneration">
+    <div>
+        <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+        <h4 class="modal-title">Generate Comparison Report</h4>
+    </div>
+    <hr>
+    <hr>
+    <div [ngStyle]="{opacity: loading ? '0.5': '1'}">
+        <md-dialog-content>
+            <div class="row" style="margin-top: 15px;" *ngIf='isInit && yearsFrom.length > 1'>
+                <div class="col-md-6">
+                    <span style="font-size:15px;font-family: Open Sans; opacity: 0.5">Select year for comparison</span>
+                    <md-select [(ngModel)]="selectedYearFrom" name="yearFrom" (change)='changeYearFrom()' style="width: 100%; margin-top: 10px">
+                        <md-option *ngFor="let year of yearsFrom" [value]="year">
+                            {{year}}
+                        </md-option>
+                    </md-select>
+                </div>
+                <div class="col-md-6">
+                    <span style="font-size:15px;font-family: Open Sans; opacity: 0.5">Select year to comparison</span>
+                    <md-select [disabled]='!selectedYearFrom' [(ngModel)]="selectedYearTo" name="yearTo" style="width: 100%;; margin-top: 10px">
+                        <md-option *ngFor="let year of yearsTo" [value]="year">
+                            {{year}}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div class='row' *ngIf='isInit && yearsFrom.length < 2' style="color: #cc908f">
+                <div class="col-sm-12">
+                    Comparison reports compare a turbine findings at two different <br> inspection dates. The current selection
+                    does not meet this criteria.
+                </div>
+            </div>
+        </md-dialog-content>
+    </div>
+    <md-dialog-actions>
+        <div class='col-sm-12' style="padding-right: 0px;">
+            <button type="submit" md-raised-button style="margin-left:10px" class="pull-right" color='accent' [disabled]="!selectedYearFrom || !selectedYearTo || yearsFrom.length < 2 || selectedYearTo < selectedYearFrom || loading">Generate</button>
+            <button md-raised-button md-dialog-close class="pull-right">Close</button>
+        </div>
+    </md-dialog-actions>
+</form>

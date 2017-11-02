@@ -1,0 +1,33 @@
+#addDeepZoomLink md-dialog-content {
+  min-height: 300px;
+}
+
+.form-group {
+  padding-top: 20px;
+}
+
+.add-deep-zoom-link-title {
+  font-size: 16px;
+  margin: -5px 0 20px;
+  padding-bottom: 15px;
+  text-align: center;
+  display: block;
+}
+
+.divider {
+  height: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-bottom: 30px;
+}
+
+#select-deep-zoom-link {
+  color:white; 
+  background-color: #337AB7;
+}
+
+#loader img{
+  margin-left: 13% !important;
+  margin-top: 10% !important;
+}

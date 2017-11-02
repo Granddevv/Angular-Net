@@ -1,0 +1,7 @@
+<div *ngIf='bladeLength > 0' id="summary-view">
+    <app-summary-view-item [bladeSurface]='Surface.PS' [bladeLength]='bladeLength' [nodeType]='nodeType' (onFilterChange)='filterChange($event)'></app-summary-view-item>
+    <app-summary-view-item [bladeSurface]='Surface.LE' [bladeLength]='bladeLength' [nodeType]='nodeType' (onFilterChange)='filterChange($event)'></app-summary-view-item>
+    <app-summary-view-item [bladeSurface]='Surface.SS' [bladeLength]='bladeLength' [nodeType]='nodeType' (onFilterChange)='filterChange($event)'></app-summary-view-item>
+    <app-summary-view-item [bladeSurface]='Surface.TE' [bladeLength]='bladeLength' [nodeType]='nodeType' [showScaleNumbers]='true' (onFilterChange)='filterChange($event)'></app-summary-view-item>
+</div>
+<div id="error-message" *ngIf='bladeLength <= 0'> <span>No data available!</span> </div>

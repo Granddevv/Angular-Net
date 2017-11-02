@@ -1,0 +1,131 @@
+@import './src/variables.scss';
+
+#findings-datatable {
+  color: rgba(0, 0, 0, 0.8);
+  font-family: 'Open Sans', 'Helvetica Neue';
+  position: relative;
+  min-height: 300px;
+}
+
+#findings-datatable .datatable-header {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  height: 70px !important;
+}
+
+#findings-datatable .ngx-datatable.material .datatable-row-group {
+  border-top: 1px solid #ddd;
+  padding: 3px 0 3px 0;  
+}
+
+#findings-datatable .ngx-datatable .datatable-footer .datatable-footer-inner {
+  display: block !important;
+}
+
+#findings-datatable .ngx-datatable.material .datatable-footer .datatable-pager li a i {
+  font-style: normal; 
+}
+
+#findings-datatable .ngx-datatable.material .datatable-footer .datatable-pager li:nth-child(-n + 2) {
+  margin-right: -5px;
+}
+
+#findings-datatable .ngx-datatable.material .datatable-footer .datatable-pager li:nth-last-child(-n + 2) {
+  margin-left: -5px;
+}
+#findings-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row .threedots-style .btn, 
+#findings-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row .datatable-row-group .threedots-style .btn {
+  visibility: hidden;
+  background-color: transparent;
+}
+
+#findings-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .threedots-style .btn, 
+#findings-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group .threedots-style .btn {
+  visibility: visible;
+}
+
+#findings-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .threedots-style:hover .btn, 
+#findings-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group .threedots-style:hover .btn,
+#findings-datatable .btn-group.open.threedots-style .dropdown-toggle {
+  border: 1px solid #8a8a8a !important;
+  visibility: visible !important;
+}
+
+#findings-datatable .ngx-datatable.material.single-selection .datatable-body-row.active .threedots-style .btn, 
+#findings-datatable .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group .threedots-style .btn {
+  color:#41ead4;
+  border: 1px solid  #41ead4 !important;
+  visibility: visible !important;
+}
+
+#findings-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row.active:hover .threedots-style:hover .btn, 
+#findings-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row.active:hover .datatable-row-group .threedots-style:hover .btn
+#findings-datatable  .btn-group.open.threedots-style .dropdown-toggle {
+  border: 1px solid  #41ead4 !important;
+  visibility: visible !important;
+}
+
+#findings-datatable .ngx-datatable.material.single-selection .datatable-body-row.active.mat-checkbox-inner-container , 
+#findings-datatable .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group .mat-checkbox-inner-container {
+   border: 1px solid  #41ead4 !important;
+}
+
+#findings-datatable .ngx-datatable.material .mat-checkbox-inner-container  {
+  opacity: 0.7;
+  width: 19px;
+  height: 19px;
+  margin-left: 100% !important;
+}
+
+#action-dropdown-menu ul.dropdown-menu-right li {
+  font-size:14px;
+  @media (max-width: $break-large) {
+    font-size: $dropdown-menu-font !important;
+  }
+}
+
+#findings-datatable .datatable-row-wrapper {
+  cursor:pointer;
+}
+
+.page-size-label, .datatable-pager {  
+  margin: 0 4px;
+}
+
+#findings-datatable .pageSizeDDL .mat-select-trigger {
+  min-width: 50px;
+}
+
+#findings-datatable .pageSizeDDL .mat-select-underline {
+  display: none;
+}
+
+#findings-datatable .paginator .mat-select-trigger {
+  height: 10px;
+}
+
+#findings-datatable .pageSizeDDL .mat-select-trigger span span.mat-select-value-text {
+  margin-top: -11px;
+  font-family: 'Open Sans' !important;
+  font-size: 15px;
+}
+
+#findings-datatable .pageSizeDDL .mat-select-trigger span.mat-select-arrow {
+  margin-top: -9px;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  #findings-datatable .pageSizeDDL .mat-select-trigger span span.mat-select-value-text {
+    margin-top: 0px !important;
+  }
+
+  #findings-datatable .pageSizeDDL .mat-select-trigger span.mat-select-arrow {
+    margin-top: 0px !important;
+  }
+}

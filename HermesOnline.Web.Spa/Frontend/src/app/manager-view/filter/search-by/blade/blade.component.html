@@ -1,0 +1,44 @@
+<app-breadcrumb [bladeId]="bladeId"></app-breadcrumb>
+<md-tab-group>
+    <md-tab label="Overview">
+        <div class='row'>
+            <div class="col-md-2">
+                <app-severity-legend></app-severity-legend>
+            </div>
+            <div class="col-md-2">
+                <app-blade-side-overview [maxNumOfDefects]='maxNumOfDefects' [surface]='Surface.PS'></app-blade-side-overview>
+            </div>
+            <div class="col-md-2">
+                <app-blade-side-overview [maxNumOfDefects]='maxNumOfDefects' [surface]='Surface.LE'></app-blade-side-overview>
+            </div>
+            <div class="col-md-2">
+                <app-blade-side-overview [maxNumOfDefects]='maxNumOfDefects' [surface]='Surface.SS'></app-blade-side-overview>
+            </div>
+            <div class="col-md-2">
+                <app-blade-side-overview [maxNumOfDefects]='maxNumOfDefects' [surface]='Surface.TE'></app-blade-side-overview>
+            </div>
+        </div>
+    </md-tab>
+    <md-tab label="Summary">
+        <div class='row'>
+            <div class="col-md-2">
+                <app-severity-legend></app-severity-legend>
+            </div>
+            <div class="col-md-9">
+                <app-summary-view [nodeType]='NodeType.Blade'></app-summary-view>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </md-tab>
+    <md-tab label="Detailed">
+        <div class='row'>
+            <div class="col-md-2">
+                <app-severity-legend></app-severity-legend>
+            </div>
+            <div class="col-md-9">
+                <app-detailed-view [nodeType]='NodeType.Blade'></app-detailed-view>
+            </div>
+        </div>
+    </md-tab>
+</md-tab-group>

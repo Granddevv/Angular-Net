@@ -1,0 +1,13 @@
+<div class='row' id='findingtags'>
+  <ul class="nav nav-pills">
+    <li *ngFor='let tag of tags'>
+      <div [style.background-color]='tag.color'>
+        <label>{{tag.name}}</label>
+        <i appHasAnyPermission [permissions]="[Permissions.DeleteTag]" (click)='deleteTag(tag.id)' class="material-icons">close</i>
+      </div>
+    </li>
+    <li>
+      <a appHasAnyPermission [permissions]="[Permissions.AddTag]"  (click)='addTag()' class="add-tag">Add tag...</a>
+    </li>
+  </ul>
+</div>

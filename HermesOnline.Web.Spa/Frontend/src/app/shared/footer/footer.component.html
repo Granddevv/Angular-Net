@@ -1,0 +1,13 @@
+<div class="footer">
+  <div class="row" style="margin-right: 0px">
+    <div class="col-lg-7">
+      <p class='version'>Version: {{version}}</p>
+    </div>
+    <div class="col-lg-2" style="float:left">
+      <a appHasAnyPermission [permissions]="[Permissions.GiveFeedback]" class="site-feedback" (click)='openFeedbackTypeDialog()'>Site Feedback</a>
+    </div>
+    <div class="col-lg-3">
+      <p class="copyright-label">Copyright &copy; Siemens Wind Power {{year}}</p>
+    </div>
+  </div>
+</div>

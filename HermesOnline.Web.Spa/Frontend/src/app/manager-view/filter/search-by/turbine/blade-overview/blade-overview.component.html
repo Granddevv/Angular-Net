@@ -1,0 +1,37 @@
+<div class="blade-title">
+    <h3 class="font-size: 17px;"> Blade {{blade.serialNumber}}</h3>
+</div>
+<table class="blade" id="blade-overview">
+    <tbody>
+        <tr>
+            <td class="value">{{blade.severities['five']}}</td>
+            <td (click)='setFilter(Severity.Five)'><i class="line"></i><span class="percentage severity_5" [ngStyle]="{'opacity': getOpacity(Severity.Five),'width.%': (blade.severities['five'] * 100)/maxNumOfDefects}"> </span></td>
+            <tr>
+                <td class="value">{{blade.severities['four']}}</td>
+                <td (click)='setFilter(Severity.Four)'>
+                    <i class="line"></i>
+                    <span class="percentage severity_4" [ngStyle]="{'opacity':getOpacity(Severity.Four),'width.%': (blade.severities['four'] * 100)/maxNumOfDefects}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="value">{{blade.severities['three']}}</td>
+                <td (click)='setFilter(Severity.Three)'><i class="line"></i><span class="percentage severity_3" [ngStyle]="{'opacity': getOpacity(Severity.Three), 'width.%': (blade.severities['three'] * 100)/maxNumOfDefects}"> </span></td>
+            </tr>
+            <tr>
+                <td class="value">{{blade.severities['two']}}</td>
+                <td (click)='setFilter(Severity.Two)'><i class="line"></i><span class="percentage severity_2" [ngStyle]="{'opacity': getOpacity(Severity.Two), 'width.%': (blade.severities['two'] * 100)/maxNumOfDefects}"> </span></td>
+            </tr>
+            <tr>
+                <td class="value">{{blade.severities['one']}}</td>
+                <td (click)='setFilter(Severity.One)'><i class="line"></i><span class="percentage severity_1" [ngStyle]="{'opacity': getOpacity(Severity.One), 'width.%': (blade.severities['one'] * 100)/maxNumOfDefects}"> </span></td>
+            </tr>
+            <tr>
+                <td class="value">{{blade.severities['zero']}}</td>
+                <td (click)='setFilter(Severity.Zero)'><i class="line"></i><span class="percentage severity_0" [ngStyle]="{'opacity': getOpacity(Severity.Zero), 'width.%': (blade.severities['zero'] * 100)/maxNumOfDefects}"> </span></td>
+            </tr>
+    </tbody>
+</table>
+<div class="blade-menu">
+    <a [routerLink]="['/managerview', {outlets: {'filter':['blade',blade.id], 'findings':['tab', Tab.Findings ,'type', nodeType.Blade ,'id', blade.id]}}]"
+        class="navigation-node">View Details</a>
+</div>

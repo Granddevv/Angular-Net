@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-1">
+    <h3>{{Surface[bladeSurface]}} </h3>    
+  </div> 
+  <div class="col-md-10">
+    <table [ngStyle]="{'table-layout':'fixed'}">
+      <tbody>
+        <tr>
+          <td *ngFor='let bin of bins; let i = index' [ngClass]="[bin]" [ngStyle]="{opacity: bin === 'severity_undefined' ? 0.3 : 1}" (click)='binClick(i)' style='cursor: pointer'>
+          </td>
+        </tr>        
+        <tr>
+          <td *ngFor='let bin of bins; let i = index' style="height: 15px;" [ngClass]="{'border': i % 10 === 0 , 'noBorder': i % 10 !== 0}">
+            <span *ngIf='showScaleNumbers && i % 10 === 0'>{{i}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>    
+  </div>
+   <div class="col-md-1">
+     <h3 style='cursor: pointer' (click)='resetFilter()' *ngIf='selectedMeters != null && selectedMeters.length > 0'>X</h3>    
+  </div>
+</div>

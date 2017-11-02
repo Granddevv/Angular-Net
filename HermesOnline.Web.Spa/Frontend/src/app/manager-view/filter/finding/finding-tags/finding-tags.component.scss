@@ -1,0 +1,32 @@
+#findingtags div{
+    border-radius:25px;
+    padding: 0px 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#findingtags .nav>li>a:focus, .nav>li>a:hover{
+    background-color: transparent;
+}
+
+#findingtags i{
+    vertical-align: middle;
+    font-size:15px;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #000;
+}
+
+#findingtags label {
+    padding-top: 3px;
+}
+
+.add-tag{
+   cursor: pointer;
+}
+
+#findingtags label{
+    color: #000;
+    opacity: 0.8;
+}

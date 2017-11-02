@@ -1,0 +1,35 @@
+<app-breadcrumb-info [isComparisonWindow]="isComparisonWindow" [findingId]="findingId"></app-breadcrumb-info>
+<div class="row">
+    <div class="col-md-4">
+        <app-deep-zoom-link-toolbar (toggleAnnotationChanged)="toggleAnnotation($event)" (toggleScaleChanged)="toggleScale($event)"
+            (toggleMeasureDistanceChanged)="toggleMeasureDistance($event)" [isComparisonWindow]="isComparisonWindow">
+        </app-deep-zoom-link-toolbar>
+    </div>
+    <div class="col-md-2  toogle-content" style="margin: 18px 0; font-size: 15px;">
+        Severity: {{findings.severity}} - {{findings.type}} in {{findings.layer}}
+    </div>
+    <div class="col-md-4 toogle-content" style="margin: 18px 0; font-size: 15px;">
+        R [m]: {{findings.distanceToRoot}} - L [mm]: {{findings.lengthMm}}
+    </div>
+    <div class="collapse navbar-collapse col-md-2" id="action-dropdown-menu" style="float: right; margin: 8px 20px;">
+        <ul class="navbar-right">
+            <li class="dropdown" dropdown>
+                <button md-raised-button class="dropdown-toggle button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    dropdownToggle>Action <span class="caret"></span></button>
+                <div class="dropdown-menu" *dropdownMenu>
+                    <li>
+                        <a href="javascript:void(0)" (click)='changeDataQuality()' class="open-linking-dialog"><i class="fa fa-check"></i> Data Quality</a>
+                    </li>
+                    <li>
+                        <a *ngIf="deepZoomLinkUrl.length > 0" target="_blank" routerLink="/preview/deepzoomlink/{{deepZoomLinkId}}"><i class="fa fa-external-link" aria-hidden="true"></i> View Deep Zoom</a>
+                    </li>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="{{'openSeadragon-' + findingId}}" style="height: 800px; background-color:black">
+    <div id="{{'canvasContainer-' + findingId}}" [hidden]="!measureDistance" style="position: absolute; z-index: 1;">
+        <canvas id="{{'canvasDraw-' + findingId }}" style="background: none transparent; border: none; margin: 0; padding: 0; position: absolute;"></canvas>
+    </div>
+</div>

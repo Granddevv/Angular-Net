@@ -1,0 +1,31 @@
+<div class="blade-title">
+    <h3 style="font-size: 17px;">{{Surface[surface]}}</h3>
+</div>
+<table class="blade" id="blade-side-overview">
+    <tbody>
+        <tr>
+            <td class="value">{{bladeSide.Severity['five']}}</td>
+            <td><i class="line"></i><span class="percentage severity_5" [ngStyle]="{'width.%': (bladeSide.Severity['five'] * 100)/maxNumOfDefects}"> </span></td>
+        </tr>
+        <tr>
+            <td class="value">{{bladeSide.Severity['four']}}</td>
+            <td><i class="line"></i><span class="percentage severity_4" [ngStyle]="{'width.%': (bladeSide.Severity['four'] * 100)/maxNumOfDefects}"> </span></td>
+        </tr>
+        <tr>
+            <td class="value">{{bladeSide.Severity['three']}}</td>
+            <td><i class="line"></i><span class="percentage severity_3" [ngStyle]="{'width.%': (bladeSide.Severity['three'] * 100)/maxNumOfDefects}"> </span></td>
+        </tr>
+        <tr>
+            <td class="value">{{bladeSide.Severity['two']}}</td>
+            <td><i class="line"></i><span class="percentage severity_2" [ngStyle]="{'width.%': (bladeSide.Severity['two'] * 100)/maxNumOfDefects}"> </span></td>
+        </tr>
+        <tr>
+            <td class="value">{{bladeSide.Severity['one']}}</td>
+            <td><i class="line"></i><span class="percentage severity_1" [ngStyle]="{'width.%': (bladeSide.Severity['one'] * 100)/maxNumOfDefects}"> </span></td>
+        </tr>
+        <tr>
+            <td class="value">{{bladeSide.Severity['zero']}}</td>
+            <td><i class="line"></i><span class="percentage severity_0" [ngStyle]="{'width.%': (bladeSide.Severity['zero'] * 100)/maxNumOfDefects}"> </span></td>
+        </tr>
+    </tbody>
+</table>

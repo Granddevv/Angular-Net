@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="text-center">Navigate by regions</h3>
+        <br>
+    </div>
+    <div class="col-md-6">
+        <h3 class="text-center">... by countries</h3>
+        <br>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="text-center pointer" [ngClass]="{'navigateby-scroll' : numOfColumn(regions) > 1}" [ngStyle]="{'column-count': numOfColumn(regions) }">
+            <ul *ngFor="let region of regions">
+                <a class="region" href="javascript:void(0)" [routerLink]="['/managerview', {outlets: {'filter':['navigateby', region.id], 'findings':['tab', Tab.Findings, 'type',nodeType.Region ,'id', region.id]}}]"
+                    [ngStyle]="{'opacity': region.id == selectedRegionId ? 1 : 0.7}">{{region.value}} ({{region.numOfSites}})</a>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="text-center pointer"  [ngClass]="{'navigateby-scroll' : numOfColumn(countries) > 1}"  [ngStyle]="{'column-count': numOfColumn(countries) }">
+            <ul *ngFor="let country of countries;">
+                <a class="region" href="javascript:void(0)" [routerLink]="['/managerview', {outlets: {'filter':['navigateby',selectedRegionId, country.id], 'findings':['tab', Tab.Findings, 'type', nodeType.Country ,'id', country.id]}}]">{{country.value}} ({{country.numOfSites}})</a>
+            </ul>
+        </div>
+    </div>
+</div>

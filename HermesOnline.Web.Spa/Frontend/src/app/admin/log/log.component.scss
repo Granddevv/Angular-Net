@@ -1,0 +1,42 @@
+@import './src/variables.scss';
+
+#log-datatable ngx-datatable {    
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+#log-datatable .datatable-header {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+#log-datatable .ngx-datatable.material .datatable-row-group {
+  border-top: 1px solid #ddd;
+  padding: 3px 0 3px 0;  
+}
+
+#log-datatable .ngx-datatable.material .datatable-footer .datatable-pager li a i {
+  font-style: normal; 
+}
+
+#log-datatable .ngx-datatable.material .datatable-footer .datatable-pager li:nth-child(-n + 2) {
+  margin-right: -5px;
+}
+
+#log-datatable .ngx-datatable.material .datatable-footer .datatable-pager li:nth-last-child(-n + 2) {
+  margin-left: -5px;
+}
+
+#log-datatable .datatable-row-wrapper {
+  cursor:pointer;
+}
+
+.row {
+  margin-right: -20px;
+}

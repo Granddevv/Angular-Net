@@ -1,0 +1,36 @@
+@import './src/variables.scss';
+
+.copyright-label {
+    color: #009999;
+    padding-left: 10px;
+    text-align: right;
+} 
+
+.footer{
+    margin-top: 20px;
+    margin-right: 6%;
+    margin-left: 4%;
+    @media (max-width: $break-large) {
+        margin-right: $footermarginsright !important;
+        margin-left: $footermarginsleft !important;
+    }
+}
+
+.version{
+    padding-left: 20px !important;
+    @media (max-width: $break-large) {
+        font-size: $version-font !important;
+    }
+}
+
+.site-feedback{
+    font-size: 15px;
+    cursor: pointer; 
+    color: #333;
+    position: relative;
+    z-index: $footer-z-index;
+    @media (max-width: $break-large) {
+        font-size: $button-font !important;
+    }
+    float: right;
+}

@@ -1,0 +1,21 @@
+<div id="loader" *ngIf='loading' style="position: fixed; width: 100%; height: 100%;">
+  <img src="{{loaderImage.src}}" />
+</div>
+<div style="margin-bottom: 5px;z-index:902;">
+  <div id="defect-images-container">
+    <a target="_blank" routerLink="/preview/image/{{image.id}}/{{findingId}}">
+      <div id="defect-images"></div>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div *ngIf="imageExist" class="col-md-6">
+    <md-slide-toggle [checked]='true' (change)='showOutline($event.checked)'> <span class="toogle-content">Display finding outline</span></md-slide-toggle>
+  </div>
+  <div *ngIf="imageExist" class="col-md-4">
+    <md-slide-toggle [checked]='true' (change)='showScale($event.checked)'> <span class="toogle-content">Display scale</span></md-slide-toggle>
+  </div>
+  <div *ngIf="imageExist" class="col-md-2" style="text-align: left">
+    <i class="material-icons" style="cursor: pointer; padding: 16px" (click)='downloadImage()'>file_download</i>
+  </div>
+</div>

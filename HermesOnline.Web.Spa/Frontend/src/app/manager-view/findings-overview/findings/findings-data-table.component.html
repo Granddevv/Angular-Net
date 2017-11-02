@@ -1,0 +1,161 @@
+<div id="findings-datatable" class="row">
+  <ngx-datatable #table class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [count]="count" [offset]="offset" [limit]="limitPerPage"
+    [selected]="selected" [selectionType]="'single'" (select)='onSelect($event)' (sort)="onSort($event)" [loadingIndicator]="loadingIndicator">
+
+    <ngx-datatable-footer>
+      <ng-template ngx-datatable-footer-template let-rowCount="count" let-pageSize="pageSize" let-selectedCount="selectedCount"
+        let-curPage="curPage" let-offset="offset">
+        <div class="row" style="padding-top: 12px;margin-left:0px;">
+          <div class="col-md-4">
+            <p> {{numOfSelected}}/{{count}} total</p>
+          </div>
+          <div class="col-md-8 text-right" *ngIf='count > 0'>
+            <div class='paginator'>
+              <span class="page-size-label">Items per page:</span>
+              <md-select class='pageSizeDDL' [(ngModel)]='limitPerPage' (change)="pageSizeChange($event.value)" floatPlaceholder="always">
+                <md-option [value]="15">15</md-option>
+                <md-option [value]="30">30</md-option>
+                <md-option [value]="75">75</md-option>
+                <md-option [value]="150">150</md-option>
+              </md-select>
+              <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
+                [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage" [size]="limitPerPage" [count]="count" (change)="onPage($event)"
+                [hidden]="!((count / pageSize) > 1)">
+              </datatable-pager>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngx-datatable-footer>
+  </ngx-datatable>
+
+  <template #severityHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer" >{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.severity" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.severity)"></app-quick-filter>
+  </template>
+
+  <template #categoryHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.category" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.category)"></app-quick-filter>
+  </template>
+
+  <template #layerHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.layer" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.layer)"></app-quick-filter>
+  </template>
+
+  <template #rHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 10px; cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #selectionHeaderTemplate let-column="column">
+    <div style="margin-bottom: 10px;">{{column.name}}</div>
+    <md-checkbox (change)='selectAllRowsForReportChange()' [(ngModel)]='selectAllRowsForReport'></md-checkbox>
+  </template>
+
+
+  <template #tHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 10px; cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #lHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 10px; cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #aHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 10px; cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #siteHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.site" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.site)"></app-quick-filter>
+  </template>
+
+  <template #turbineHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.turbineName" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.turbineName)"></app-quick-filter>
+  </template>
+
+  <template #turbineTypeHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.turbineType" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.turbineType)"></app-quick-filter>
+  </template>
+
+  <template #platformHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.platform" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.platform)"></app-quick-filter>
+  </template>
+
+  <template #bladeHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.blade" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.blade)"></app-quick-filter>
+  </template>
+
+  <template #surfaceHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.surface" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.surface)"></app-quick-filter>
+  </template>
+
+  <template #inspectionDateHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.inspectionDate" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.inspectionDate)"></app-quick-filter>
+  </template>
+
+  <template #dataQualityDateHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.dataQuality" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.dataQuality)"></app-quick-filter>
+  </template>
+
+  <template #inspectionTypeHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.inspectionType" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.inspectionType)"></app-quick-filter>
+  </template>
+
+  <template #inspectionCompanyeHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.inspectionCompany" (filterSubmitted)="quickFilterSubmitted(column.prop, quickFiltersList.inspectionCompany)"></app-quick-filter>
+  </template>
+
+  <template #serialNumberHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 10px; cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #actionsHeaderTemplate let-column="column">
+    <div style="margin-bottom: 10px; cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #actionsTemplate let-row="row">
+    <div (click)='$event.stopPropagation();' class="btn-group threedots-style" id="action-dropdown-menu" dropdown [autoClose]="true">
+      <button id="single-button" type="button" class="btn" dropdownToggle>
+        <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+      </button>
+      <ul *dropdownMenu role="menu" aria-labelledby="single-button" class="dropdown-menu dropdown-menu-right">
+        <!--TODO this part is deleted because "Improvements to Linking/Grouping/Merging" task, but it'll be come back -->
+        <!--
+        <li appHasAnyPermission [permissions]="[Permissions.LinkFinding]" role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="action(FindingGroupType.TimeLink, row, $event)"><i class="fa fa-external-link"></i> TimeLink</a></li>
+        <li appHasAnyPermission [permissions]="[Permissions.LinkFinding]" role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="action(FindingGroupType.LocationLink, row, $event)"><i class="fa fa-external-link"></i> LocationLink</a></li>        
+        <li appHasAnyPermission [permissions]="[Permissions.LinkFinding]" role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)="action(FindingGroupType.ViewLink, row, $event)"><i class="fa fa-external-link"></i> ViewLink</a></li>
+        -->
+        <li appHasAnyPermission [permissions]="[Permissions.ValidateDataQuality]" role="menuitem"><a (click)="changeDataQuality(row, $event)" class="dropdown-item" href="javascript:void(0)"><i class="fa fa-check"></i> Data Quality</a></li>
+      </ul>
+    </div>
+  </template>
+
+  <template #dataQualityTemplate let-row="row">
+    <form class="form-inline">
+      <span *ngIf="row['dataQuality'] == dataQuality.Good"><img src="assets/DataQuality/good.png" value="Good"></span>
+      <span *ngIf="row['dataQuality'] == dataQuality.GoodApproved"><img src="assets/DataQuality/good-approved.png" value="Good_Approved"/></span>
+      <span *ngIf="row['dataQuality'] == dataQuality.Medium"><img src="assets/DataQuality/medium.png" value="Medium"/></span>
+      <span *ngIf="row['dataQuality'] == dataQuality.MediumApproved"><img src="assets/DataQuality/medium-approved.png" value="Medium_Approved"/></span>
+      <span *ngIf="row['dataQuality'] == dataQuality.Bad"><img src="assets/DataQuality/bad.png" value="Bad"/></span>
+      <span *ngIf="row['dataQuality'] == dataQuality.BadApproved"><img src="assets/DataQuality/bad-approved.png" value="Bad_Approved"/></span>
+    </form>
+  </template>
+
+  <template #selectionTemplate let-row="row">
+    <div (click)='$event.stopPropagation();'>
+      <md-checkbox (change)='selectedChanged(row)' [(ngModel)]='row.selected'></md-checkbox>
+    </div>
+  </template>
+</div>

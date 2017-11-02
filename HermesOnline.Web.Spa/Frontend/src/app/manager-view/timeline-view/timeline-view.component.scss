@@ -1,0 +1,12 @@
+@import './src/variables.scss';
+
+.col-md-8, .col-md-3, .col-md-1{
+    padding-right: 0px;
+}
+
+#action-dropdown-menu ul.navbar-left li.dropdown div.dropdown-menu li a {
+    font-size:14px;
+    @media (max-width: $break-large) {
+        font-size: $dropdown-menu-font !important;
+    }
+}

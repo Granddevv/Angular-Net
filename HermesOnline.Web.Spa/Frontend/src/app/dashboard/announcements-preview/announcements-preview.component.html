@@ -1,0 +1,20 @@
+<div id='announcements'>
+  <carousel [interval]="interval">
+    <slide *ngFor="let a of announcements">
+      <div class="carousel-caption">
+        <h2>
+          {{a.title}}
+        </h2>
+        <i *ngIf="a.fileName && !isVideo(a.fileName) && !isImage(a.fileName)" class="material-icons" style="cursor: pointer;" (click)='downloadAnnouncement(a.id)'>file_download</i>
+        <i *ngIf="a.fileName && isVideo(a.fileName)" class="material-icons" style="cursor: pointer;" (click)='preview(a.id, AnnouncementFileType.Video)'>videocam</i>
+        <i *ngIf="a.fileName && isImage(a.fileName)" class="material-icons" style="cursor: pointer;" (click)='preview(a.id, AnnouncementFileType.Image)'>photo</i>
+        <h4 style="opacity: 0.5;">
+          {{a.date}}
+        </h4>
+        <div class='description'>
+          {{a.description}}
+        </div>
+      </div>
+    </slide>
+  </carousel>
+</div>

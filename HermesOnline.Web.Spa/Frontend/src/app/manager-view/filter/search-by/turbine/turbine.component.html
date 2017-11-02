@@ -1,0 +1,42 @@
+<app-breadcrumb [turbineId]="turbineId"></app-breadcrumb>
+
+<md-tab-group>
+    <md-tab label="Overview">
+        <div class='row' style="overflow-y: hidden">
+            <div class="col-md-2">
+                <app-severity-legend></app-severity-legend>
+            </div>
+            <div class="col-md-3">
+                <app-blade-overview [maxNumOfDefects]='maxNumOfDefects' [bladeOrder]='1'></app-blade-overview>
+            </div>
+            <div class="col-md-3">
+                <app-blade-overview [maxNumOfDefects]='maxNumOfDefects' [bladeOrder]='2'></app-blade-overview>
+            </div>
+            <div class="col-md-3">
+                <app-blade-overview [maxNumOfDefects]='maxNumOfDefects' [bladeOrder]='3'></app-blade-overview>
+            </div>
+        </div>
+    </md-tab>
+    <md-tab label="Summary">
+        <div class='row'>
+            <div class="col-md-2">
+                <app-severity-legend></app-severity-legend>
+            </div>
+            <div class="col-md-9">
+                <app-summary-view [nodeType]="NodeType.Turbine"></app-summary-view>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </md-tab>
+    <md-tab label="Detailed">
+        <div class='row'>
+            <div class="col-md-2">
+                <app-severity-legend></app-severity-legend>
+            </div>
+            <div class="col-md-9">
+                <app-detailed-view [nodeType]='NodeType.Turbine'></app-detailed-view>
+            </div>
+        </div>
+    </md-tab>
+</md-tab-group>

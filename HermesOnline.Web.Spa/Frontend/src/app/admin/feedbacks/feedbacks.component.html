@@ -1,0 +1,101 @@
+<div id="feedbacks-datatable" class="row">
+  <div style="margin-left: 3.5%;margin-bottom: 10px">
+    <h4 class="modal-title" style="opacity: 0.7; margin-left: 7px;">Feedback Administration</h4>
+  </div>
+  <div id="feedback-searchcontrol" class="row">
+    <div class="col-md-3">
+      <md-input-container class="full-width" style="width: 200%; margin-top: -10px;">
+        <input [(ngModel)]="searchValue" [formControl]="searchControl" mdInput placeholder="Search by...">
+      </md-input-container>
+    </div>
+  </div>
+  <ngx-datatable #table class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [count]="count" [offset]="offset" [limit]="limitPerPage"
+    [selected]="selected" (page)='onPage($event)' (sort)="onSort($event)" [loadingIndicator]="loadingIndicator">
+  </ngx-datatable>
+
+  <template #actionsTemplate let-row="row">
+    <div class="btn-group threedots-style" id="action-dropdown-menu" dropdown [autoClose]="'nonInput'">
+      <button id="single-button" type="button" class="btn" dropdownToggle>
+      <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+    </button>
+      <ul *dropdownMenu role="menu" aria-labelledby="single-button" class="dropdown-menu dropdown-menu-right">
+        <li role="menuitem">
+          <a (click)="resolve(row)" *ngIf="row['status'] === 'Submitted'" class="dropdown-item" href="javascript:void(0)"><i class="fa fa-check"></i> Resolve</a>
+        </li>
+        <li role="menuitem">
+          <a color="warn" (click)='reject(row)' *ngIf="row['status'] === 'Submitted'" class="dropdown-item" href="javascript:void(0)"><i class="fa fa-times"></i> Reject</a>
+        </li>
+        <li role="menuitem"><a color="warn" (click)='view(row)' class="dropdown-item" href="javascript:void(0)"><i class="fa fa-eye"></i> View</a></li>
+      </ul>
+    </div>
+  </template>
+
+  <template #descriptionTemplate let-value='value'>
+    {{value | truncate : 20}}
+  </template>
+
+  <template #commentTemplate let-value='value'>
+    {{value | truncate : 20}}
+  </template>
+
+  <template #urlTemplate let-value='value'>
+    <a style="cursor:pointer" target="_blank" href="{{value}}"> {{value| truncate : 15 }}</a>
+  </template>
+
+  <template #fileTemplate let-value='value' let-row='row'>
+    <a style="cursor:pointer" (click)='downloadFile(row)'> {{value | truncate : 10}}</a>
+  </template>
+
+  <template #userTemplate let-value='value'>
+    {{value | truncate : 10}}
+  </template>
+
+  <template #typeHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.type" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.type)"></app-quick-filter>
+  </template>
+
+  <template #categoryHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.category" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.category)"></app-quick-filter>
+  </template>
+
+  <template #statusHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="cursor: pointer">{{column.name}}</div>
+    <app-quick-filter [filterList]="quickFiltersList.status" (filterSubmitted)="quickFilterSubmitted(column.name, quickFiltersList.status)"></app-quick-filter>
+  </template>
+
+  <template #dateHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 30px; cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #userHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 30px; cursor: pointer">{{column.name}}</div>
+  </template>
+
+  <template #descriptionHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 30px">{{column.name}}</div>
+  </template>
+
+  <template #commentHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 30px">{{column.name}}</div>
+  </template>
+
+  <template #fileHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 30px">{{column.name}}</div>
+  </template>
+
+  <template #urlHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 30px">{{column.name}}</div>
+  </template>
+
+  <template #actionHeaderTemplate let-column="column" let-sort="sortFn">
+    <div (click)="sort()" style="margin-bottom: 30px">{{column.name}}</div>
+  </template>
+</div>
+<div class="row">
+  <div class="col-md-8"></div>
+  <div class="col-md-3">
+  </div>
+</div>

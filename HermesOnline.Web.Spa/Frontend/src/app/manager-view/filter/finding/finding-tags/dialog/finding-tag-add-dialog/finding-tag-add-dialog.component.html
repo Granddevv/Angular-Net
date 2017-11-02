@@ -1,0 +1,21 @@
+<div>
+  <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+  <h4 class="modal-title">Add Tag</h4>
+</div>
+<hr>
+<md-dialog-content *ngIf='isInit'>
+  <div class="form-group" *ngIf='tags.length > 0'>
+    <md-select placeholder="Select tag" [(ngModel)]='selectedTagId' style="width:50%;">
+      <md-option required *ngFor="let tag of tags" [value]="tag.id">
+        {{ tag.name }}
+      </md-option>
+    </md-select>
+  </div>
+  <div class="form-group" *ngIf='tags.length === 0'>
+    <p>There is no available tags to add to this finding.</p>
+  </div>
+</md-dialog-content>
+<md-dialog-actions style="margin-left: 377px;">
+  <button md-raised-button md-dialog-close>Close</button>
+  <button (click)='add()' color='accent' style="margin-left: 5px;" md-raised-button [disabled]="!selectedTagId">Add</button>
+</md-dialog-actions>

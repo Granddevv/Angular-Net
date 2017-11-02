@@ -1,0 +1,63 @@
+<div class="row">
+    <div class='col-md-12'>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <table id="breadcrumb">
+                    <tr id="breadcrumb-title">
+                        <td>Region</td>
+                        <td></td>
+                        <td>Country</td>
+                        <td></td>
+                        <td>Site</td>
+                        <td></td>
+                        <td>Turbine</td>
+                        <td></td>
+                        <td id='bladeTitle' *ngIf='turbineId || bladeId || defectId '>Blade</td>
+                        <td id='surfaceArrow' *ngIf='bladeId || defectId'></td>
+                        <td id='surfaceTitle' *ngIf='defectId'>Surface</td>
+                        <td *ngIf='defectId'></td>
+                        <td *ngIf='defectId'>Finding</td>
+                    </tr>
+                    <tr id="breadcrumb-content">
+                        <td><a href="javascript:void(0)" [routerLink]="['/managerview', {outlets: {'filter':['navigateby', breadcrumb.region.id], 'findings':['tab', Tab.Findings, 'type', nodeType.Region ,'id', breadcrumb.region.id]}}]">{{breadcrumb.region.value}}</a></td>
+                        <td><i class="fa fa-long-arrow-right"></i></td>
+                        <td><a href="javascript:void(0)" [routerLink]="['/managerview', {outlets: {'filter':['navigateby', breadcrumb.region.id, breadcrumb.country.id], 'findings':['tab', Tab.Findings, 'type', nodeType.Country ,'id', breadcrumb.country.id]}}]">{{breadcrumb.country.value}}</a></td>
+                        <td><i class="fa fa-long-arrow-right"></i></td>
+                        <td>
+                            <a href="javascript:void(0)" [routerLink]="['/managerview', {outlets: {'filter':['site', breadcrumb.site.id], 'findings':['tab', Tab.Findings, 'type', nodeType.Site ,'id', breadcrumb.site.id]}}]">{{breadcrumb.site.value}}</a>
+                        </td>
+                        <td>
+                            <i class="fa fa-long-arrow-right"></i>
+                        </td>
+                        <td *ngIf='siteId'>
+                            Overview <span>({{breadcrumb.turbineCount}})</span>
+                        </td>
+                        <td *ngIf='turbineId || bladeId || defectId'>
+                            <a href="javascript:void(0)" [routerLink]="['/managerview', {outlets: {'filter':['turbine', breadcrumb.turbine.id], 'findings':['tab', Tab.Findings, 'type', nodeType.Turbine ,'id', breadcrumb.turbine.id]}}]">{{breadcrumb.turbine.value}}</a>
+                        </td>
+                        <td *ngIf='turbineId || bladeId || defectId'>
+                            <i class="fa fa-long-arrow-right"></i>
+                        </td>
+                        <td *ngIf='turbineId'>
+                            Overview
+                        </td>
+                        <td *ngIf='bladeId'>
+                                {{breadcrumb.blade.value}}
+                        </td>
+                        <td *ngIf='defectId'>
+                            <a *ngIf="defectId" href="javascript:void(0)" (click)='navigateToBladeOverview()'>{{breadcrumb.blade.value}}</a>
+                        </td>
+                        <td *ngIf='defectId'>
+                            <i class="fa fa-long-arrow-right"></i>
+                        </td>
+                        <td *ngIf='defectId'>{{breadcrumb.surface}}</td>
+                        <td *ngIf='defectId'>
+                            <i class="fa fa-long-arrow-right"></i>
+                        </td>
+                        <td *ngIf='defectId'>{{breadcrumb.serialNumber}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

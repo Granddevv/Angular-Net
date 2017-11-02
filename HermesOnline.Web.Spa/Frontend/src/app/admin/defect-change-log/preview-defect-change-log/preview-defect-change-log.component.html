@@ -1,0 +1,77 @@
+<div id="defectChangeLogView">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Finding Change Log View</h4>
+  </div>
+  <hr>
+  <md-dialog-content>
+    <div style="width:30%; float:left;margin-left: 30px;">
+      <div class="form-group">
+        <md-input-container>
+          <input mdInput disabled placeholder="Date Modified: " readonly [(ngModel)]="defectChangeLog.dateModified" name="dateModified"
+            #dateModified="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <input mdInput disabled placeholder="Original Severity" readonly [(ngModel)]="defectChangeLog.originalSeverity" name="originalSeverity"
+            #originalSeverity="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <input mdInput disabled placeholder="Original Layer" readonly [(ngModel)]="defectChangeLog.originalLayer" name="originalLayer"
+            #originalLayer="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <input disabled mdInput placeholder="Original Type" readonly [(ngModel)]="defectChangeLog.originalType" name="originalType"
+            #originalType="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <input mdInput disabled placeholder="New Severity" readonly [(ngModel)]="defectChangeLog.newSeverity" name="newSeverity"
+            #newSeverity="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <input mdInput disabled placeholder="New Layer" readonly [(ngModel)]="defectChangeLog.newLayer" name="newLayer" #newLayer="ngModel">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="form-group" style="float:right; width: 50%; margin-right: -20px;">
+      <div class="form-group">
+        <md-input-container>
+          <input disabled mdInput placeholder="New Type" readonly [(ngModel)]="defectChangeLog.newType" name="newType" #newType="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <input mdInput disabled placeholder="User" readonly [(ngModel)]="defectChangeLog.user" name="user" #user="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <input mdInput disabled placeholder="Site" readonly [(ngModel)]="defectChangeLog.site" name="site" #site="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <input disabled mdInput placeholder="Finding Number" readonly [(ngModel)]="defectChangeLog.serialNumber" name="serialNumber"
+            #serialNumber="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <textarea mdInput disabled placeholder="Comment" readonly [(ngModel)]="defectChangeLog.comment" name="comment" #comment="ngModel"></textarea>
+        </md-input-container>
+      </div>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions [attr.align]="actionsAlignment" style="margin-left: 800px;">
+    <button md-raised-button md-dialog-close>Close</button>
+  </md-dialog-actions>
+</div>

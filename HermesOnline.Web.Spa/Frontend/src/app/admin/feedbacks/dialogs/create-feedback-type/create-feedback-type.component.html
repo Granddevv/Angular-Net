@@ -1,0 +1,10 @@
+<div class="mat-dialog-container">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Select Feedback Type</h4>
+  </div>
+  <hr>
+  <md-dialog-actions>
+    <button  md-raised-button *ngFor="let type of listType" class="button_style" (click)='createNewFeedback( type.text )' [value]="type.value"> {{ type.text }}</button>
+  </md-dialog-actions>
+</div>

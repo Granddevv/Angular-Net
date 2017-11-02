@@ -1,0 +1,32 @@
+<div id="announcementView">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Announcement view</h4>
+  </div>
+  <hr>
+  <md-dialog-content>
+    <div class="form-group">
+      <md-input-container>
+        <input autofocus mdInput disabled placeholder="Title" readonly [(ngModel)]="announcement.title" name="title" #title="ngModel">
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <textarea mdInput disabled placeholder="Description" readonly [(ngModel)]="announcement.description" name="description" #description="ngModel"></textarea>
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input autofocus mdInput disabled placeholder="Date" readonly [(ngModel)]="announcement.date" name="date" #date="ngModel">
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input autofocus disabled mdInput placeholder="File name" readonly [(ngModel)]="announcement.fileName" name="fileName" #fileName="ngModel">
+      </md-input-container>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions [attr.align]="actionsAlignment" style="margin-left: 477px;">
+    <button md-raised-button md-dialog-close>Close</button>
+  </md-dialog-actions>
+</div>

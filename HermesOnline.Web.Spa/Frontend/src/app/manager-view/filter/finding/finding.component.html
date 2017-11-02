@@ -1,0 +1,39 @@
+<app-breadcrumb [defectId]="defect.id" (isInit)='isInit($event)'></app-breadcrumb>
+<div class="row finding-detail-container">
+    <div class='col-md-4' style="padding: 0px;">
+        <app-finding-image [findingId]="defect.id"></app-finding-image>
+    </div>
+
+    <div class='col-md-8'>
+        <div id="Rectangle-7">
+            <div id='moveUpDiv'>
+                <i (click)='move(true)' class="material-icons moveUpIcon">expand_less</i>
+            </div>
+            <div id='moveDownDiv'>
+                <i (click)='move(false)' class="material-icons moveDownIcon">expand_more</i>
+            </div>
+
+            <div id="finding-structure-title">
+                <span id="Severity-Label" [style.color]="SeverityColorMapper.getColorHexValueBySeverity(defect.severity)">Severity {{defect.severity}} - {{defect.name}} in {{defect.layer}}</span>
+            </div>
+            <div class="row layer">
+                <div class="col-md-3">{{defect.distanceToRoot}}</div>
+                <div class="col-md-3">{{defect.lengthMM}}</div>
+                <div class="col-md-3">{{defect.areaMM2}}</div>
+
+            </div>
+            <div class="row RLA-m">
+                <div class="col-md-3">R [m]</div>
+                <div class="col-md-3">L [mm]</div>
+                <div class="col-md-3">A [mm<sup>2</sup>]</div>
+            </div>
+            <div class="row layer" *ngIf="defect.isInGroup">
+                <a mdTooltip="{{FindingGroupType[defect.groupType]}}" (click)="applyGroupFilter()" data-toggle="tooltip" title="Column selection"
+                    role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons rotate md-36" style="color: white" >call_merge</i>
+                </a>
+            </div>
+        </div>
+        <!--<app-finding-tags></app-finding-tags>-->
+    </div>
+</div>

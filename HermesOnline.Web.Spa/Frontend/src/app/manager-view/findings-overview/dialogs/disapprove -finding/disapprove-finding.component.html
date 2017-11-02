@@ -1,0 +1,21 @@
+<div id="loader" *ngIf='loading' style="z-index:902;position: fixed; width: 100%; height: 100%;">
+  <img src="{{loaderImage.src}}" />
+</div>
+<div id="disapproveFinding">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Disapprove Finding</h4>
+  </div>
+  <hr>
+  <div [ngStyle]="{opacity: loading ? '0.5': '1'}">
+    <md-dialog-content>
+      <div class="form-group">
+        <button md-raised-button (click)='edit()' class="button"><i class="fa fa-pencil-square-o"></i> Edit finding</button>
+        <button md-raised-button (click)='delete()' class="button"><i class="fa fa-trash-o"></i> Delete finding </button>
+      </div>
+    </md-dialog-content>
+  </div>
+  <md-dialog-actions style="float: right">
+    <button md-raised-button md-dialog-close>Close</button>
+  </md-dialog-actions>
+</div>

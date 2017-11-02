@@ -1,0 +1,59 @@
+<div id="location-link-datatable">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">LocationLink</h4>
+    <h4 class="modal-title" style="font-size:small">Use this to link findings in the same area, so they are grouped into one finding</h4>
+  </div>
+  <hr>
+  <md-dialog-content>
+    <div class="row">
+      <ngx-datatable #table class="material" [rows]="dataRows" [columnMode]="'force'" [columns]="columns" [headerHeight]="60" [footerHeight]="60"
+        [rowHeight]="'auto'" [externalPaging]="true" [externalSorting]="true" [count]="count" [offset]="offset" [limit]="limitPerPage"
+        [selected]="selected" [selectionType]="'single'" (page)='onPage($event)' (sort)="onSort($event)" [loadingIndicator]="loadingIndicator">
+      </ngx-datatable>
+
+      <template #serialNumberHeaderTemplate let-column="column" let-sort="sortFn">
+        <div (click)="sort()">{{column.name}}</div>
+      </template>
+
+      <template #categoryHeaderTemplate let-column="column" let-sort="sortFn">
+        <div (click)="sort()">{{column.name}}</div>
+        <app-quick-filter [filterList]="quickFiltersList.category" (filterSubmitted)="quickFilterSubmitted('category', quickFiltersList.category)"></app-quick-filter>
+      </template>
+
+      <template #severityHeaderTemplate let-column="column" let-sort="sortFn">
+        <div (click)="sort()">{{column.name}}</div>
+        <app-quick-filter [filterList]="quickFiltersList.severity" (filterSubmitted)="quickFilterSubmitted('severity', quickFiltersList.severity)"></app-quick-filter>
+      </template>
+
+      <template #layerHeaderTemplate let-column="column" let-sort="sortFn">
+        <div (click)="sort()">{{column.name}}</div>
+        <app-quick-filter [filterList]="quickFiltersList.layer" (filterSubmitted)="quickFilterSubmitted('layer', quickFiltersList.layer)"></app-quick-filter>
+      </template>
+
+      <template #surfaceHeaderTemplate let-column="column" let-sort="sortFn">
+        <div (click)="sort()">{{column.name}}</div>
+        <app-quick-filter [filterList]="quickFiltersList.surface" (filterSubmitted)="quickFilterSubmitted('surface', quickFiltersList.surface)"></app-quick-filter>
+      </template>
+
+      <template #rHeaderTemplate let-column="column" let-sort="sortFn">
+        <div (click)="sort()">{{column.name}}</div>
+      </template>
+
+      <template #lHeaderTemplate let-column="column" let-sort="sortFn">
+        <div (click)="sort()">{{column.name}}</div>
+      </template>
+
+      <template #aHeaderTemplate let-column="column" let-sort="sortFn">
+        <div (click)="sort()">{{column.name}}</div>
+      </template>
+
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions style="margin-left: 350px;">
+    <div class='col-sm-12' style="padding-right: 0px;">
+      <button type="submit" md-raised-button style="margin-left:10px" class="pull-right" color='accent' [disabled]='selected.length === 0' (click)='link()'>Link</button>
+      <button md-raised-button md-dialog-close class="pull-right">Close</button>
+    </div>
+  </md-dialog-actions>
+</div>

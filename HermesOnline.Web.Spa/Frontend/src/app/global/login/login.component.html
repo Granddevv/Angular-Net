@@ -1,0 +1,32 @@
+<div class="login-container">
+    <img class="login-logo" height="80" width="300" src="assets/siemens-logo-white.png" alt="siemens-logo-white">
+    <div class="loginscreen">
+        <div *ngIf="loginAttemptUnsuccessful" class="alert wrong-password">Invalid email or password</div>
+        <form name="loginForm" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+            <div class="form-group-small" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                <input type="text" class="input-gray" name="username" [(ngModel)]="model.username" #username="ngModel" placeholder=" &#xf2c0;    Username"
+                    style="font-family:Open Sans, FontAwesome" required />
+                <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+            </div>
+            <div class="form-group-small" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                <input type="password" class="input-gray" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder=" &#xE899;    Password"
+                    style="font-family:Open Sans, Material Icons" required />
+                <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+            </div>
+            <div class="form-group-small">
+                <button [disabled]="loading" class="btn-pink">Log In</button>
+                <img *ngIf="loading" id="login-loader" src="{{loaderImage.src}}" />
+            </div>
+        </form>
+        <div class="forgot-password">
+            <a [routerLink]="['/forgotpassword']">Forgot your password?</a>
+        </div>
+    </div>
+    <div class="request-access">
+        Don't have an account?<br />
+        <a [routerLink]="['/requestloginaccess']">Request Access</a>
+    </div>
+    <div class="copyright">
+        Copyright © Siemens Wind Power
+    </div>
+</div>

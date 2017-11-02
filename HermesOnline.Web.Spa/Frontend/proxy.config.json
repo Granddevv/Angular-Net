@@ -1,0 +1,14 @@
+{
+  "/api": {
+    "target": "http://company1.braendler.com",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/token": {
+    "target": "http://company1.braendler.com",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  }
+} 

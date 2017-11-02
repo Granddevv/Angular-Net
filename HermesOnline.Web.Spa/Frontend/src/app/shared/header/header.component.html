@@ -1,0 +1,47 @@
+<div class="white-bg">
+  <nav class="navbar navbar-default header">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <img class="header-logo" height="40" width="210" src="assets/siemens-logo-color.png" alt="siemens-logo-color">
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li appHasAnyPermission [permissions]="[Permissions.DashboardNavigation]" [routerLinkActive]="['active']"> <a [routerLink]="['/dashboard']">Home<span class="sr-only"></span></a></li>
+          <li><a (click)='navigateToManagerView()'>Blades<span class="sr-only"></span></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li appHasAnyPermission [permissions]="[Permissions.AdminNavigation]" class="dropdown" dropdown>
+            <a [routerLinkActive]="['active']" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+              dropdownToggle>Admin <span class="caret"></span></a>
+            <div class="dropdown-menu" *dropdownMenu>
+              <li><a [routerLink]="['/admin/announcements']">Announcements Administration</a></li>
+              <li><a [routerLink]="['/admin/feedbacks']">Feedback Administration</a></li>
+              <li><a [routerLink]="['/admin/usermanagement']">User Management</a></li>
+              <!--<li><a [routerLink]="['/admin/tag']">Tags Administration</a></li>-->
+              <li role="separator" class="divider"></li>
+              <li><a href="javascript:void(0)" (click)="addDeepZoomLink()">Add DeepZoom Link</a></li>
+              <li><a href="javascript:void(0)" (click)="importFindings()">Import Findings</a></li>
+              <li><a href="javascript:void(0)" (click)="deleteData()">Delete Data</a></li>
+              <li role="separator" class="divider"></li>
+              <!--<li><a [routerLink]="['/admin/deleteditems']">Deleted Items</a></li>-->
+              <li><a [routerLink]="['/admin/fileUploadLogs']">File Upload Logs</a></li>
+              <li><a [routerLink]="['/admin/defectChangeLog']">Finding Change Logs</a></li>
+              <li><a [routerLink]="['/admin/log']">Application Log</a></li>
+            </div>
+          </li>
+          <li class="dropdown" dropdown>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>{{userName}}<span class="caret"></span></a>
+            <div class="dropdown-menu" *dropdownMenu>
+              <li><a style="cursor: pointer" (click)='changePassword()'>Change Password</a></li>
+              <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+</div>

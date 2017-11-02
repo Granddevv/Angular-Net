@@ -1,0 +1,75 @@
+@import './src/variables.scss';
+
+#defect-change-logs-datatable ngx-datatable {    
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+#defect-change-logs-datatable .datatable-header {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  height: 70px !important;
+}
+
+#defect-change-logs-datatable .ngx-datatable.material .datatable-row-group {
+  border-top: 1px solid #ddd;
+  padding: 3px 0 3px 0;  
+}
+
+#defect-change-logs-datatable .ngx-datatable.material .datatable-footer .datatable-pager li a i {
+  font-style: normal; 
+}
+
+#defect-change-logs-datatable .ngx-datatable.material .datatable-footer .datatable-pager li:nth-child(-n + 2) {
+  margin-right: -5px;
+}
+
+#defect-change-logs-datatable .ngx-datatable.material .datatable-footer .datatable-pager li:nth-last-child(-n + 2) {
+  margin-left: -5px;
+}
+
+#defect-change-logs-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row .threedots-style .btn, 
+#defect-change-logs-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row .datatable-row-group .threedots-style .btn {
+  visibility: hidden;
+  background-color: transparent;
+}
+
+#defect-change-logs-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .threedots-style .btn, 
+#defect-change-logs-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group .threedots-style .btn {
+  visibility: visible;
+}
+
+#defect-change-logs-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .threedots-style:hover .btn, 
+#defect-change-logs-datatable .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group .threedots-style:hover .btn,
+#defect-change-logs-datatable .btn-group.open.threedots-style .dropdown-toggle {
+  border: 1px solid #8a8a8a !important;
+  visibility: visible !important;
+}
+
+#action-dropdown-menu ul.dropdown-menu-right li {
+  font-size:14px;
+  @media (max-width: $break-large) {
+      font-size: $dropdown-menu-font !important;
+  }
+}
+
+.row {
+  margin-right: -20px;
+}
+
+#defectChangeLogHeader{
+    padding-top: 10px;
+    background-color: #fff;
+    margin-top: 10px;
+    height: 60px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: -30px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3), 0 3px 3px 0 rgba(0, 0, 0, 0.24) !important;
+}

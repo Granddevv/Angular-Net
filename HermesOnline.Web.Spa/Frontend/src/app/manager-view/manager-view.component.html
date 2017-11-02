@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="row" id="page-details-loader" [ngStyle]="{display: isSpinnerShown() ? 'block': 'none'}">
+    <span class="loading-icon spin"></span>
+</div>
+
+<div class="home-wrapper">
+    <div class="managerview-header">
+        <div id="page-header-content" [ngStyle]="{opacity: showSpinner && !isSearchBy && !disableSpinner ? '0.0': '1'}">
+            <router-outlet name='filter'></router-outlet>
+        </div>
+        <div class="row" id="page-header-menu">
+            <div class="col-md-4">
+                <a href="javascript:void(0)" id="search-by-menu" [routerLink]="['/managerview', {outlets:{'filter':['searchby']}}]" [routerLinkActive]="['active']">Search by...</a>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <a id="navigation-menu" href="javascript:void(0)" [routerLink]="['/managerview', {outlets:{'filter':['navigateby']}}]" [routerLinkActive]="['active']">Navigate by...</a>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet name='findings'></router-outlet>
+</div>
+<app-footer></app-footer>

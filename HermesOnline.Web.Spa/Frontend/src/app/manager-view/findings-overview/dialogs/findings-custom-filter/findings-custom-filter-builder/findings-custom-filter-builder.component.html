@@ -1,0 +1,22 @@
+<div style="width: 600px;">
+    <div>
+        <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+        <h4 class="modal-title">Custom filters builder</h4>
+    </div>
+    <hr>
+    <md-dialog-content>
+        <div>
+            <md-input-container class="example-full-width">
+                <input mdInput placeholder="Filter name" required [(ngModel)]="model.name" (focusout)='focusoutName()' (focus)='focusName()'>
+            </md-input-container>
+            <div *ngIf="showNameError" class='errorMsg'>
+                *The Name field is required.
+            </div>
+        </div>
+        <div id="builder"></div>
+    </md-dialog-content>
+    <md-dialog-actions style="float: right">
+        <button md-raised-button md-dialog-close>Close</button>
+        <button md-raised-button [disabled]="!model.name" (click)="saveFilter()">Save</button>
+    </md-dialog-actions>
+</div>

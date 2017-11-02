@@ -1,0 +1,708 @@
+@import 'variables.scss';
+
+/* You can add global styles to this file, and also import other style files */
+
+ngx-datatable{  
+  z-index: $data-table-z-index;
+}
+
+@font-face {
+  font-family: "Open Sans"; 
+  src: url('assets/fonts/open-sans/OpenSans.eot?#iefix') format('embedded-opentype'), 
+       url('assets/fonts/open-sans/OpenSans.woff') format('woff'), 
+       url('assets/fonts/open-sans/OpenSans.woff2') format('woff2'), 
+       url('assets/fonts/open-sans/OpenSans.ttf')  format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Open Sans"; 
+  src: url('assets/fonts/open-sans/OpenSans-Light.eot?#iefix') format('embedded-opentype'), 
+       url('assets/fonts/open-sans/OpenSans-Light.woff') format('woff'), 
+       url('assets/fonts/open-sans/OpenSans-Light.woff2') format('woff2'), 
+       url('assets/fonts/open-sans/OpenSans-Light.ttf')  format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), 
+       local('MaterialIcons-Regular'),  
+       url('assets/fonts/material-icons/material.woff2') format('woff2'),
+       url('assets/fonts/material-icons/material.eot?#iefix') format('embedded-opentype')
+}
+
+@font-face {
+  font-family: "data-table";
+  src:url("assets/fonts/data-table/data-table.eot");
+  src:url("assets/fonts/data-table/data-table.eot?#iefix") format("embedded-opentype"),
+      url("assets/fonts/data-table/data-table.woff") format("woff"),
+      url("assets/fonts/data-table/data-table.ttf") format("truetype"),
+      url("assets/fonts/data-table/data-table.svg#data-table") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:"data-table-action-icons";
+  src:url("assets/fonts/data-table/data-table-action-icons.eot");
+  src:url("assets/fonts/data-table/data-table-action-icons.eot?#iefix") format("embedded-opentype"),
+      url("assets/fonts/data-table/data-table-action-icons.woff") format("woff");
+  font-weight:normal;
+  font-style:normal
+}
+
+body {
+    background-color: #eaf9f7;
+    font-family: 'Open Sans' !important;   
+}
+
+.header{
+    background: white !important;
+    margin-left: 100px;
+    margin-right: 20px;
+    border:none !important;
+}
+
+.header-logo{
+    margin-top: 5px;
+    margin-right: 5px;
+    display: block;
+}
+
+.gray-bg{
+     background-color: #f3f3f4;
+}
+
+.white-bg{
+    background: white;
+}
+
+
+.noImage {
+ background: url('~assets/no-image.png') no-repeat;
+    width: 520px !important; 
+    height: 320px !important; 
+}
+
+
+.closeBtn{
+    float: right;
+    background: transparent;
+    border: none;
+}
+.closeBtn:focus{
+    outline: none;
+    opacity: 0.5;
+}
+
+.material-icons {
+ font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.errorMsg{
+  color: #cc908f ;
+}
+
+/**
+ * Materials
+ */
+
+/**
+* Adjusted overflows and z-index because of quick filter dropdowns
+*/
+.ngx-datatable.material .datatable-header {
+  overflow: visible;
+}
+
+.ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+  overflow: visible !important;
+}
+.ngx-datatable.material .datatable-header-inner .datatable-row-center {
+  z-index: 12;
+}
+/**
+* End of Adjusted overflows and z-index because of quick filter dropdowns
+*/
+
+.ngx-datatable.material {
+  background: #FFF;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.12), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+}
+
+/**
+* Adjusted overflows and z-index because of quick filter dropdowns
+*/
+.ngx-datatable {
+  overflow: visible !important;
+}
+
+.ngx-datatable.material .datatable-header {
+  overflow: visible;
+}
+
+.ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+  overflow: visible !important;
+}
+.ngx-datatable.material .datatable-header-inner .datatable-row-center {
+  z-index: 12;
+}
+/**
+* End of Adjusted overflows and z-index because of quick filter dropdowns
+*/
+
+  .ngx-datatable.material.striped .datatable-row-odd {
+    background: #eee; 
+}
+  .ngx-datatable.material.single-selection .datatable-body-row.active,
+  .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active,
+  .ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active,
+  .ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
+    background-color: #181535;
+    color: #41ead4; }
+  .ngx-datatable.material.single-selection .datatable-body-row.active:hover,
+  .ngx-datatable.material.single-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active:hover,
+  .ngx-datatable.material.multi-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover,
+  .ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+    background-color: #181535;
+    color: #41ead4; }
+  .ngx-datatable.material.single-selection .datatable-body-row.active:focus,
+  .ngx-datatable.material.single-selection .datatable-body-row.active:focus .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active:focus,
+  .ngx-datatable.material.multi-selection .datatable-body-row.active:focus .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active:focus,
+  .ngx-datatable.material.multi-click-selection .datatable-body-row.active:focus .datatable-row-group {
+    background-color:#181535;
+    color: #41ead4; }
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+    background-color: #eee;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear; }
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:focus,
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:focus .datatable-row-group {
+    background-color: #ddd; }
+  .ngx-datatable.material.cell-selection .datatable-body-cell:hover,
+  .ngx-datatable.material.cell-selection .datatable-body-cell:hover .datatable-row-group {
+    background-color: #eee;
+    transition-property: background;
+    transition-duration: .3s;
+    transition-timing-function: linear; }
+  .ngx-datatable.material.cell-selection .datatable-body-cell:focus,
+  .ngx-datatable.material.cell-selection .datatable-body-cell:focus .datatable-row-group {
+    background-color: #ddd; }
+  .ngx-datatable.material.cell-selection .datatable-body-cell.active,
+  .ngx-datatable.material.cell-selection .datatable-body-cell.active .datatable-row-group {
+    background-color: #181535;
+    color: #41ead4; }
+  .ngx-datatable.material.cell-selection .datatable-body-cell.active:hover,
+  .ngx-datatable.material.cell-selection .datatable-body-cell.active:hover .datatable-row-group {
+    background-color: #181535;
+    color: #41ead4; }
+  .ngx-datatable.material.cell-selection .datatable-body-cell.active:focus,
+  .ngx-datatable.material.cell-selection .datatable-body-cell.active:focus .datatable-row-group {
+    background-color: #181535;
+    color: #41ead4; }
+  .ngx-datatable.material .empty-row {
+    height: 50px;
+    text-align: left;
+    padding: .5rem 1.2rem;
+    vertical-align: top;
+    border-top: 0; }
+  .ngx-datatable.material .loading-row {
+    text-align: left;
+    padding: .5rem 1.2rem;
+    vertical-align: top;
+    border-top: 0; }
+  .ngx-datatable.material .datatable-header .datatable-row-left,
+  .ngx-datatable.material .datatable-body .datatable-row-left {
+    background-color: #FFF;
+    background-position: 100% 0;
+    background-repeat: repeat-y;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAFklEQVQIHWPSkNeSBmJhTQVtbiDNCgASagIIuJX8OgAAAABJRU5ErkJggg==); }
+  .ngx-datatable.material .datatable-header .datatable-row-right,
+  .ngx-datatable.material .datatable-body .datatable-row-right {
+    background-position: 0 0;
+    background-color: #fff;
+    background-repeat: repeat-y;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAFklEQVQI12PQkNdi1VTQ5gbSwkAsDQARLAIGtOSFUAAAAABJRU5ErkJggg==); }
+  .ngx-datatable.material .datatable-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+    .ngx-datatable.material .datatable-header .datatable-header-cell {
+      text-align: left;
+      padding: .5rem 1.2rem;
+      font-size: 16px;
+      @media (max-width: $break-large) {
+        font-size: 14px!important;
+      }
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.56;
+      letter-spacing: normal;
+      color: rgba(0, 0, 0, 0.8);
+      vertical-align: bottom; }
+      .ngx-datatable.material .datatable-header .datatable-header-cell .datatable-header-cell-wrapper {
+        position: relative; 
+        cursor: auto; }
+      .ngx-datatable.material .datatable-header .datatable-header-cell.longpress .draggable::after {
+        transition: transform 400ms ease, opacity 400ms ease;
+        opacity: .5;
+        transform: scale(1); }
+      .ngx-datatable.material .datatable-header .datatable-header-cell .draggable::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -30px 0 0 -30px;
+        height: 60px;
+        width: 60px;
+        background: #eee;
+        border-radius: 100%;
+        opacity: 1;
+        filter: none;
+        transform: scale(0);
+        z-index: 9999;
+        pointer-events: none; }
+      .ngx-datatable.material .datatable-header .datatable-header-cell.dragging .resize-handle {
+        border-right: none; }
+    .ngx-datatable.material .datatable-header .resize-handle {
+      border-right: solid 1px #eee; }
+  .ngx-datatable.material .datatable-body .datatable-row-detail {
+    background: #f5f5f5;
+    padding: 10px; }
+  .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
+    text-align: left;
+    @media (max-width: $break-large) {
+        font-size: 12px!important;
+    }
+    font-size: 14px;
+    font-family: 'Open Sans', 'Helvetica Neue';
+    padding: .5rem 1.2rem;
+    vertical-align: top;
+    border-top: 0;
+    -webkit-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+    line-height: 29px; 
+    }
+  .ngx-datatable.material .datatable-body .progress-linear {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 5px;
+    padding: 0;
+    margin: 0;
+    position: absolute; }
+    .ngx-datatable.material .datatable-body .progress-linear .container {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 5px;
+      -webkit-transform: translate(0, 0) scale(1, 1);
+      transform: translate(0, 0) scale(1, 1);
+      background-color: #aad1f9; }
+      .ngx-datatable.material .datatable-body .progress-linear .container .bar {
+        transition: all .2s linear;
+        -webkit-animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+        transition: -webkit-transform .2s linear;
+        transition: transform .2s linear;
+        background-color: #106cc8;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 5px; }
+  .ngx-datatable.material .datatable-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    font-size: 14px; }
+    .ngx-datatable.material .datatable-footer .page-count {
+      line-height: 50px;
+      height: 50px;
+      padding: 0 1.2rem; }
+    .ngx-datatable.material .datatable-footer .datatable-pager {
+      margin: 0 10px; }
+      .ngx-datatable.material .datatable-footer .datatable-pager li {
+        vertical-align: middle; }
+        .ngx-datatable.material .datatable-footer .datatable-pager li.disabled a {
+          color: rgba(0, 0, 0, 0.26) !important;
+          background-color: transparent !important; }
+        .ngx-datatable.material .datatable-footer .datatable-pager li.active a {
+          background-color: rgba(158, 158, 158, 0.2);
+          font-weight: bold; }
+      .ngx-datatable.material .datatable-footer .datatable-pager a {
+        height: 22px;
+        min-width: 24px;
+        line-height: 22px;
+        padding: 0 6px;
+        border-radius: 0px;
+        border:0;
+        margin: 0;
+        text-align: center;
+        vertical-align: top;
+        color: rgba(0, 0, 0, 0.7);
+        text-decoration: none;
+        vertical-align: bottom; }
+        .ngx-datatable.material .datatable-footer .datatable-pager a:hover {
+          color: rgba(0, 0, 0, 0.75);
+          background-color: rgba(158, 158, 158, 0.2); }
+      .ngx-datatable.material .datatable-footer .datatable-pager .datatable-icon-left,
+      .ngx-datatable.material .datatable-footer .datatable-pager .datatable-icon-skip,
+      .ngx-datatable.material .datatable-footer .datatable-pager .datatable-icon-right,
+      .ngx-datatable.material .datatable-footer .datatable-pager .datatable-icon-prev {
+        font-size: 20px;
+        line-height: 26px;
+        padding: 0 3px; }
+
+/**
+ * Checkboxes
+**/
+.datatable-checkbox {
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 0; }
+  .datatable-checkbox input[type='checkbox'] {
+    position: relative;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    outline: none; }
+    .datatable-checkbox input[type='checkbox']:before {
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      content: "";
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid #f2f2f2; }
+    .datatable-checkbox input[type='checkbox']:checked:before {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      height: .5rem;
+      border-color: #009688;
+      border-top-style: none;
+      border-right-style: none; }
+    .datatable-checkbox input[type='checkbox']:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1rem;
+      height: 1rem;
+      background: #fff;
+      cursor: pointer; }
+
+/**
+ * Progress bar animations
+ */
+@keyframes query {
+  0% {
+    opacity: 1;
+    transform: translateX(35%) scale(0.3, 1); }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0, 1); } }
+
+
+/**
+ * Icons.css
+ */
+[class^="datatable-icon-"]:before,
+[class*=" datatable-icon-"]:before {
+  font-family: "data-table" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.datatable-icon-filter:before {
+  content: "\62";
+}
+.datatable-icon-collapse:before {
+  content: "\61";
+}
+.datatable-icon-expand:before {
+  content: "\63";
+}
+.datatable-icon-close:before {
+  content: "\64";
+}
+.datatable-icon-up:before {
+  content: "\65";
+}
+.datatable-icon-down:before {
+  content: "\66";
+}
+.datatable-icon-sort:before {
+  content: "\67";
+}
+.datatable-icon-done:before {
+  content: "\68";
+}
+.datatable-icon-done-all:before {
+  content: "\69";
+}
+.datatable-icon-search:before {
+  content: "\6a";
+}
+.datatable-icon-pin:before {
+  content: "\6b";
+}
+.datatable-icon-add:before {
+  content: "\6d";
+}
+.datatable-icon-left:before {
+  content: "\6f";
+}
+.datatable-icon-right:before {
+  content: "\70";
+}
+.datatable-icon-skip:before {
+  content: "\71";
+}
+.datatable-icon-prev:before {
+  content: "\72";
+}
+
+.aui-icon-small:before {
+    color: inherit;
+    font-family: "data-table-action-icons";
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    left: 0;
+    line-height: 1;
+    position: absolute;
+    text-indent: 0;
+    top: 50%;
+    font-size: 16px;
+    margin-top: -8px;
+}
+
+.aui-iconfont-more:before {
+    content: "\f17f";
+}
+
+.aui-icon-small {
+    line-height: 0;
+    position: relative;
+    vertical-align: text-top;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    border: none;
+    display: inline-block;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-indent: -999em;
+    vertical-align: text-bottom;
+    width: 16px;
+}
+
+.btn-pink {
+    color: white;
+    border: 1px solid transparent;    
+    border-width: 0px;
+    border-radius: 20px;
+    border-color: rgb(200, 200, 200);
+    border-style: solid;
+    background-color: rgba(185, 19, 114, 0.5);
+    background-image: none;
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: center center;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 33px;
+    line-height: 1.42857143;
+    margin-bottom: 0;
+    padding: 0px;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    width: 300px;
+    white-space: nowrap;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.input-gray {
+    border: 1px solid #ccc;
+    color: white;
+    background-color: rgba(235, 235, 235, 0.5);
+    background-image: none;
+    background-position: center center;
+    background-size: auto;
+    background-repeat: repeat;
+    border-color: rgb(200, 200, 200);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    display: block;
+    font-size: 14px;
+    height: 33px;
+    line-height: 1.42857143;
+    padding: 6px 12px;
+    width: 100%;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.form-group-small {
+  margin-top: 10px;
+}
+
+
+@-moz-keyframes spinning_animation {
+    0% {
+        -o-transform: scale(1) rotate(0deg);
+        -moz-transform: scale(1) rotate(0deg);
+        -ms-transform: scale(1) rotate(0deg);
+        -webkit-transform: scale(1) rotate(0deg);
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        -o-transform: scale(0.8) rotate(360deg);
+        -moz-transform: scale(0.8) rotate(360deg);
+        -ms-transform: scale(0.8) rotate(360deg);
+        -webkit-transform: scale(0.8) rotate(360deg);
+        transform: scale(0.8) rotate(360deg);
+    }
+
+    100% {
+        -o-transform: scale(1) rotate(720deg);
+        -moz-transform: scale(1) rotate(720deg);
+        -ms-transform: scale(1) rotate(720deg);
+        -webkit-transform: scale(1) rotate(720deg);
+        transform: scale(1) rotate(720deg);
+    }
+}
+
+@-webkit-keyframes spinning_animation {
+    0% {
+        -webkit-transform: scale(1) rotate(0deg);
+        -moz-transform: scale(1) rotate(0deg);
+        -ms-transform: scale(1) rotate(0deg);
+        -o-transform: scale(1) rotate(0deg);
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        -webkit-transform: scale(0.8) rotate(360deg);
+        -moz-transform: scale(0.8) rotate(360deg);
+        -ms-transform: scale(0.8) rotate(360deg);
+        -o-transform: scale(0.8) rotate(360deg);
+        transform: scale(0.8) rotate(360deg);
+    }
+
+    100% {
+        -webkit-transform: scale(1) rotate(720deg);
+        -moz-transform: scale(1) rotate(720deg);
+        -ms-transform: scale(1) rotate(720deg);
+        -o-transform: scale(1) rotate(720deg);
+        transform: scale(1) rotate(720deg);
+    }
+    }
+
+@keyframes spinning_animation {
+    0% {
+        -moz-transform: scale(1) rotate(0deg);
+        -ms-transform: scale(1) rotate(0deg);
+        -webkit-transform: scale(1) rotate(0deg);
+        -o-transform: scale(1) rotate(0deg);
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        -o-transform: scale(0.8) rotate(360deg);
+        -moz-transform: scale(0.8) rotate(360deg);
+        -ms-transform: scale(0.8) rotate(360deg);
+        -webkit-transform: scale(0.8) rotate(360deg);
+        transform: scale(0.8) rotate(360deg);
+    }
+
+    100% {
+        -o-transform: scale(1) rotate(720deg);
+        -moz-transform: scale(1) rotate(720deg);
+        -ms-transform: scale(1) rotate(720deg);
+        -webkit-transform: scale(1) rotate(720deg);
+        transform: scale(1) rotate(720deg);
+    }
+}
+
+    #page-details-loader .loading-icon {
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('data:image/png;base64,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') /*../Images/spinner.png*/;
+    }
+
+.loading-icon.spin {
+    -webkit-animation: 2s cubic-bezier(0.63, 0.045, 0.34, 1) 0s normal none infinite spinning_animation;
+    -moz-animation: 2s cubic-bezier(0.63, 0.045, 0.34, 1) 0s normal none infinite spinning_animation;
+    -o-animation: 2s cubic-bezier(0.63, 0.045, 0.34, 1) 0s normal none infinite spinning_animation;
+    animation: 2s cubic-bezier(0.63, 0.045, 0.34, 1) 0s normal none infinite spinning_animation;
+}
+
+div.mat-slide-toggle-container { 
+    cursor: pointer !important;
+}
+
+.mat-simple-snackbar-message{
+   color:white  !important;
+   font-size: 16px;
+}
+
+.mat-tab-label {
+    font-size: 17px !important;
+}
+
+div.btn-group.threedots-style button.btn {
+  border-radius: 4px !important;
+}

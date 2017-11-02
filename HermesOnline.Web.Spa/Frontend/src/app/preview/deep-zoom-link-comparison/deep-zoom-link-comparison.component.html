@@ -1,0 +1,20 @@
+<div>
+  <div *ngIf='deepZoomLinkInfo'>
+    <div class="col-md-6 nopadding">
+      <app-deep-zoom-link-preview 
+        [deepZoomLinkInfo]="deepZoomLinkInfo['left']" 
+        [deepZoomWindowPosition]="position.Right"
+        [isComparisonWindow]="true"
+        [deepZoomLinkImages]="deepZoomLinkImagesLeft">
+      </app-deep-zoom-link-preview>
+    </div>
+    <div class="col-md-6 nopadding">
+      <app-deep-zoom-link-preview 
+        [deepZoomLinkInfo]="deepZoomLinkInfo['right']" 
+        [deepZoomWindowPosition]="position.Left"
+        [isComparisonWindow]="true"
+        [deepZoomLinkImages]="deepZoomLinkImagesRight">
+      </app-deep-zoom-link-preview>
+    </div>
+  </div>
+</div>

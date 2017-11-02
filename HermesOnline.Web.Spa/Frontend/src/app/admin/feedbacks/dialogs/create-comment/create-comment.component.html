@@ -1,0 +1,30 @@
+<div id="loader" *ngIf='loading' style="z-index:902;position: fixed; width: 100%; height: 100%;">
+  <img src="{{loaderImage.src}}" />
+</div>
+<form #feedbackCommentForm="ngForm" (ngSubmit)="sendFeedbackData($event)" enctype="multipart/form-data" id="feedbackComment">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Add New Comment</h4>
+  </div>
+  <hr>
+  <div [ngStyle]="{opacity: loading ? '0.5': '1'}">
+    <md-dialog-content>
+      <div class="form-group">
+        <md-input-container>
+          <textarea mdInput placeholder="Comment" required [(ngModel)]="feedback.comment" name="comment" #comment="ngModel" [disabled]="isSubmitted"
+            (focusout)='focusoutComment()' (focus)='focusComment()'></textarea>
+        </md-input-container>
+        <div *ngIf="showCommentError" style="color: #cc908f">
+          *The Comment field is required.
+        </div>
+        <div [hidden]="!commentExcededMaxCharacters" style="color: #cc908f">
+          *The Comment field cannot be more than 4000 characters
+        </div>
+      </div>
+    </md-dialog-content>
+  </div>
+  <md-dialog-actions style="margin-left: 377px;">
+    <button md-raised-button md-dialog-close>Close</button>
+    <button type="submit" style="margin-left: 5px;" color='accent' md-raised-button [disabled]="!feedbackCommentForm.form.valid || isSubmitted">Submit</button>
+  </md-dialog-actions>
+</form>

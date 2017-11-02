@@ -1,0 +1,16 @@
+table tbody#legend tr td{
+    font-size: 17px;
+}
+
+table tbody#legend tr td #circle{ 
+    width: 25px;
+    height: 25px; 
+    border-radius: 100%;
+    float: right;
+    margin-right: 10px;
+}
+
+table tbody#legend tr td span{
+    float:right;
+    font-size: 17px;
+}

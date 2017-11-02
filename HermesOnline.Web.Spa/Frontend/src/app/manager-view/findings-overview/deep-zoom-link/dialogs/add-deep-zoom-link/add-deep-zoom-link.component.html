@@ -1,0 +1,52 @@
+<div id="loader" *ngIf='loading' style="z-index:902;position: fixed; width: 100%; height: 100%;">
+  <img src="{{loaderImage.src}}" />
+</div>
+<div>
+  <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+  <h4 class="modal-title">Add Deep Zoom Link</h4>
+</div>
+<hr>
+<div id="addDeepZoomLink" [ngStyle]="{opacity: loading ? '0.5': '1'}">
+  <md-dialog-content>
+    <div>
+      <span style="font-size:15px;font-family: Open Sans">Fleet</span>
+      <ng-select [items]="fleetList"
+                 (data)="refreshValue($event)"
+                 (selected)="selectedFleet($event)"
+                 placeholder="Select fleet">
+      </ng-select>
+    </div>
+    <div style="margin-top: 15px">
+      <span style="font-size:15px;font-family: Open Sans">Site</span>
+      <ng-select #chosenSite
+                 [items]="siteList"
+                 [disabled]="!addDeepZoomLinkModel.fleetId"
+                 (data)="refreshValue($event)"
+                 (selected)="selectedSite($event)"
+                 placeholder="Select site">
+      </ng-select>
+    </div>
+    <div style="margin-top: 15px">
+      <span style="font-size:15px;font-family: Open Sans">Inspection</span>
+      <ng-select #chosenInspection
+                 [allowClear]="true"
+                 [items]="inspectionList"
+                 [disabled]="!addDeepZoomLinkModel.siteId"
+                 (data)="refreshValue($event)"
+                 (selected)="selectedInspection($event)"
+                 placeholder="Select inspection">
+      </ng-select>
+    </div>
+    <div class="form-group">
+      <span style="font-size: 15px;">DeepZoom Link: {{ addDeepZoomLinkModel.folderPath }}</span>
+    </div>
+    <div class="form-group">
+      <button id="select-deep-zoom-link" (click)="selectDeepZoomLink()" md-raised-button class="btn">Select deep zoom link</button>
+    </div>
+  </md-dialog-content>
+</div>
+<md-dialog-actions [attr.align]="actionsAlignment" style="margin-left: 300px;">
+  <button class="pull-right btn" md-raised-button md-dialog-close>Close</button>
+  <button [disabled]="!addDeepZoomLinkModel.folderPath || addDeepZoomLinkModel.siteId==null || addDeepZoomLinkModel.fleetId==null || addDeepZoomLinkModel.inspectionId==null || loading"
+    md-raised-button class="pull-right btn" color='accent' (click)="addDeepZoomLink()" style="margin-left: 5px;">Submit</button>
+</md-dialog-actions>

@@ -1,0 +1,62 @@
+<div id="previewLog">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h3 class="modal-title">ELMAH Error</h3>
+  </div>
+  <hr>
+  <md-dialog-content>
+    <div style="width:40%; float:left;">
+      <div class="form-group">
+        <h4>Host name:</h4>
+        <md-input-container>
+          <input autofocus mdInput disabled readonly [(ngModel)]="log.host" name="host" #host="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <h4>Type:</h4>
+        <md-input-container>
+          <input autofocus mdInput disabled readonly [(ngModel)]="log.type" name="type" #type="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <h4>Message:</h4>
+        <md-input-container>
+          <textarea autofocus mdInput disabled readonly [(ngModel)]="log.error" name="error" #error="ngModel"></textarea>
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <h4>Source:</h4>
+        <md-input-container>
+          <input autofocus mdInput disabled readonly [(ngModel)]="log.source" name="source" #source="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <h4>User:</h4>
+        <md-input-container>
+          <input autofocus mdInput disabled readonly [(ngModel)]="log.user" name="user" #user="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <h4>Time:</h4>
+        <md-input-container>
+          <input autofocus mdInput disabled readonly [(ngModel)]="log.date" name="date" #date="ngModel">
+        </md-input-container>
+      </div>
+      <div class="form-group">
+        <h4>StatusCode:</h4>
+        <md-input-container>
+          <input autofocus mdInput disabled readonly [(ngModel)]="log.code" name="code" #code="ngModel">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="form-group" style="float:right; width: 58%">
+      <h4>Detail:</h4>
+      <md-input-container>
+        <textarea id="detail" autofocus mdInput disabled readonly [(ngModel)]="log.detail" name="detail" #detail="ngModel"></textarea>
+      </md-input-container>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions style="margin-left: 1350px;">
+    <button md-raised-button md-dialog-close>Close</button>
+  </md-dialog-actions>
+</div>

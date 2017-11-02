@@ -1,0 +1,61 @@
+<div id="loader" *ngIf='loading' style="z-index:902;position: fixed; width: 100%; height: 100%;">
+  <img src="{{loaderImage.src}}" />
+</div>
+<form #editFindingForm="ngForm" (ngSubmit)="sendFindingData($event)" enctype="multipart/form-data" id="editFinding">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Edit Finding</h4>
+  </div>
+  <hr>
+  <div [ngStyle]="{opacity: loading ? '0.5': '1'}">
+    <md-dialog-content>
+      <div>
+        <span style="font-size:15px;font-family: Open Sans">Category</span>
+          <ng-select [active]="[finding.type]" 
+                     [items]="categoryList"
+                     (data)="refreshValue($event)"
+                     (selected)="selectedCategory($event)"
+                     placeholder="Select category">
+        </ng-select>
+      </div>
+      <div style="margin-top:20px">
+        <span style="font-size:15px;font-family: Open Sans">Layer</span>
+          <ng-select #chosenLayer
+                     [active]="[finding.layer]" 
+                     [items]="layerList"
+                     (data)="refreshValue($event)"
+                     (selected)="selectedLayer($event)"
+                     [disabled]="!selectedCategoryValue"
+                     placeholder="Select layer">
+          </ng-select>
+      </div>
+      <div style="margin-top:20px">
+        <span style="font-size:15px;font-family: Open Sans">Severity</span>
+          <ng-select #chosenSeverity
+                     [active]="[finding.severity]"
+                     [items]="severityList"
+                     (data)="refreshValue($event)" 
+                     (selected)="selectedSeverity($event)"
+                     [disabled]="!selectedLayerValue"
+                     placeholder="Select severity">
+          </ng-select>
+      </div>
+      <div class="form-group" style="margin-top:20px">
+        <md-input-container>
+          <textarea mdInput placeholder="Comment" required [(ngModel)]="finding.comment" name="comment" #comment="ngModel" (focusout)='focusoutComment()'
+            (focus)='focusComment()' [disabled]="isSubmitted"></textarea>
+        </md-input-container>
+        <div *ngIf="showCommentError" class='errorMsg'>
+          *The Comment field is required.
+        </div>
+        <div [hidden]="!commentExcededMaxCharacters" class='errorMsg'>
+          *The Comment field cannot be more than 1500 characters
+        </div>
+      </div>
+    </md-dialog-content>
+  </div>
+  <md-dialog-actions style="margin-left: 377px;">
+    <button md-raised-button md-dialog-close>Close</button>
+    <button type="submit" [disabled]="!editFindingForm.form.valid || isSubmitted || !selectedLayerValue || !selectedSeverityValue" md-raised-button color='accent' style="margin-left: 5px;">Submit</button>
+  </md-dialog-actions>
+</form>

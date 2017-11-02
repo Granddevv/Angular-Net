@@ -1,0 +1,57 @@
+<div id="loader" *ngIf='loading' style="z-index:902;position: fixed; width: 100%; height: 100%;">
+  <img src="{{loaderImage.src}}" />
+</div>
+<form #announcementForm="ngForm" enctype="multipart/form-data" id="createAnnouncement">
+  <div>
+    <button class='closeBtn' md-dialog-close><i class="material-icons">close</i></button>
+    <h4 class="modal-title">Add New Announcement</h4>
+  </div>
+  <hr>
+  <div [ngStyle]="{opacity: loading ? '0.5': '1'}">
+    <md-dialog-content>
+      <div class="form-group">
+        <md-input-container>
+          <input autofocus mdInput maxlength="100" placeholder="Title" required [(ngModel)]="announcement.title" name="title" #title="ngModel"
+            (focusout)='focusoutTitle()' (focus)='focusTitle()' [disabled]="isSubmitted">
+        </md-input-container>
+        <div *ngIf="showTitleError" class='errorMsg'>
+          *The Title field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <md-input-container>
+          <textarea mdInput placeholder="Description" required [(ngModel)]="announcement.description" name="description" #description="ngModel"
+            (focusout)='focusoutDescription()' (focus)='focusDescription()' [disabled]="isSubmitted"></textarea>
+        </md-input-container>
+        <div *ngIf="showDescriptionError" class='errorMsg'>
+          *The Description field is required.
+        </div>
+        <div [hidden]="!descriptionExcededMaxCharacters" class='errorMsg'>
+          *The Description field cannot be more than 1500 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-8">
+
+          <span id="file-upload-reports" class="btn btn-primary fileinput-button" style="margin-left: -16px;">
+                <i class="fa fa-upload"></i>
+                <span>Select files...</span>
+          <input ngFileSelect type="file" id="file" class="inputfile" #fileInput [events]="inputUploadEvents" (onPreviewData)="handlePreviewData($event)"
+            [options]="options" (onUpload)='onUpload($event)' (change)="handlePreviewData($event)" [disabled]="isSubmitted">
+          </span>
+          <div id="attached-files" class="attached-reports-container" *ngIf='announcement.fileName.length != 0'>
+            <div class='col-lg-1'><button id='remove-attached-report-file' (click)="removeFile()" type='button' class='close remove-file'><span>&times;</span></button></div>
+            <div class='col-lg-10'>
+              <p class='filename'> {{announcement.fileName}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-dialog-content>
+  </div>
+  <md-dialog-actions style="margin-left: 377px;">
+    <button md-raised-button md-dialog-close>Close</button>
+    <button (click)='sendData()' style="margin-left: 5px;" md-raised-button [disabled]="!announcementForm.form.valid || isSubmitted"
+      color='accent'>Submit</button>
+  </md-dialog-actions>
+</form>

@@ -1,0 +1,19 @@
+@import './src/variables.scss';
+
+#bs-example-navbar-collapse-1 li.dropdown div.dropdown-menu li a {
+    font-size:14px;
+    @media (max-width: $break-large) {
+        font-size: $dropdown-menu-font !important;
+    }
+}
+
+.container-fluid {
+    margin-right: 5%;
+     @media (max-width: $break-large) {
+        margin-right: $headermargins !important;
+    }
+}
+
+#bs-example-navbar-collapse-1 ul li a{
+    cursor: pointer;
+}
